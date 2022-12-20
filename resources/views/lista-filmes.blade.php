@@ -1,12 +1,11 @@
 @extends ('templates.template')
 @section ('content')
 
-filme
-filme
-filme
-filme
-filme
-filme
-filme
+@foreach($filmes as $f)
+
+    <h1> {{$f->titulo_filme}} </h1>
+    <p> {{$f->sinopse_filme}} </h1> 
+
+@endforeach
 
 @endsection

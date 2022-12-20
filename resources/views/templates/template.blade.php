@@ -21,6 +21,7 @@
     </nav>
 </header>
 </section>
+
 @yield('content')
 
     <footer>

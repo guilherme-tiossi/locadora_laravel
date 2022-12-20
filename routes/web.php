@@ -21,4 +21,4 @@ Route::get('/lista-filmes', function () {
     return view('lista-filmes');
 });
 
-Route::get('/filmes', 'App\Http\Controllers\tbfilmeControllers@index');
+Route::get('/filmes', 'App\Http\Controllers\tbfilmesController@listarfilmes');

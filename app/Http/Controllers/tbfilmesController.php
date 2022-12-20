@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tbfilmesModel;
 
 class tbfilmesController extends Controller
 {
@@ -13,8 +14,15 @@ class tbfilmesController extends Controller
      */
     public function index()
     {
-        //
+
     }
+
+    public function listarfilmes()
+    {
+        $filmes = tbfilmesModel::all();
+        return view('lista-filmes', compact('filmes'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
