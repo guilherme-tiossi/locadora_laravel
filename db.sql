@@ -20,11 +20,13 @@ CREATE TABLE `tbgeneros` (
  PRIMARY KEY (`id_genero`)
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
 
+ALTER TABLE tbgeneros AUTO_INCREMENT = 1;
+
 CREATE TABLE `tbfilmes` (
  `id_filme` int(10) NOT NULL AUTO_INCREMENT,
  `titulo_filme` varchar(100) NOT NULL,
  `sinopse_filme` varchar(300) NOT NULL,
- `valor_filme` float(2,2) NOT NULL,
+ `valor_filme` float(4,2) NOT NULL,
  `disponiveis_filme` int(2) NOT NULL,
  `genero_filme` int(10) NOT NULL,
  `foto_filme` varchar(60) NOT NULL,
@@ -43,4 +45,7 @@ CREATE TABLE `tbalugueis` (
  KEY `fk_iduser` (`id_user`),
  CONSTRAINT `fk_idfilme` FOREIGN KEY (`id_filme`) REFERENCES `tbfilmes` (`id_filme`) ON DELETE CASCADE ON UPDATE CASCADE,
  CONSTRAINT `fk_iduser` FOREIGN KEY (`id_user`) REFERENCES `tbusuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO tbgeneros VALUES (null, "Drama");
+INSERT INTO tbfilmes VALUES (null, "Django Livre", "No sul dos Estados Unidos, o ex-escravo Django faz uma aliança inesperada com o caçador de recompensas Schultz para caçar os criminosos mais procurados do país e resgatar sua esposa de um fazendeiro que força seus escravos a participar de competições mortais.", 15.00, 10, 1, "padrao.png");

@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/lista-filmes', function () {
     return view('lista-filmes');
 });
+
+Route::get('/filmes', 'App\Http\Controllers\tbfilmeControllers@index');
