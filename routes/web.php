@@ -21,6 +21,10 @@ Route::get('/cadastro', function(){
     return view('cadastro');
 });
 
+Route::get('/login', function(){
+    return view('login');
+});
+
 Route::get('/filmes', 'App\Http\Controllers\tbfilmesController@listarfilmes');
 
 Route::post('/cadastro/inserir', 'App\Http\Controllers\tbusuariosController@store');

@@ -42,7 +42,7 @@ class tbusuariosController extends Controller
         $usuarios->senha_user = $request->txSenha;
         $usuarios->save();
 
-        return redirect()->action('/login');
+        return redirect('/login');
     }
 
     /**
