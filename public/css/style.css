@@ -1,0 +1,208 @@
+
+/*==================================================   GERAL   ======================================================*/
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+.center{
+	text-align: center;
+}
+
+.div-center{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+/*===================================================   CADASTRO   =====================================================*/
+
+.div-cadastro{
+	background-color: rgba(217, 217, 217, 0.4);
+	border-radius: 10px;
+	padding: 20px;
+	margin: 2rem;
+	min-width: 25rem;
+	margin-top: 10%;
+}
+
+.titulo-cadastro{
+	margin-bottom: 0.5rem;
+}
+
+.input-cadastro{
+	display: block;
+	outline: none;
+	width: 93%;
+	padding: 6px 10px;
+	border-radius: 3px;
+	font-size: 17px;
+	margin: 10px 0;
+	background-color: transparent;
+	border: 2px solid #ccc;
+}
+
+.input-cadastro-esp{
+	display: inline;
+	outline: none;
+	width: 86%;
+	padding: 6px 10px;
+	border-radius: 3px;
+	font-size: 17px;
+	margin: 10px 0 0 0;
+	background-color: transparent;
+	border: 2px solid #ccc;
+}
+
+.btn-cadastro{
+	border-radius: 5px;
+	background-color: #000;
+	font-size: 19px;
+	color: #fff;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.link-cadastro{
+	color: #0000ee;
+	text-decoration: none;
+}
+
+/*===================================================   LOGIN   ========================================================*/
+
+.div-titulo-login{
+	padding-right: 8rem;
+}
+
+.titulo-login{
+	font-size: 50px;
+	padding: 0 0 5px 0;
+}
+
+.div-login{
+	padding: 20px;
+	margin: 2rem;
+	margin-top: 10%;
+	margin-left: 0;
+}
+
+.input-login{
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	font-size: 17px;
+	margin: 10px 0 0 0;
+	background-color: transparent;
+	border: 1px solid #ccc;
+
+}
+
+.btn-login{
+	border-radius: 8px;
+	background-color: #000;
+	font-size: 19px;
+	color: #fff;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	text-decoration: none;
+	width: 100%;
+}
+
+.btn-login2{
+	border-radius: 8px;
+	background-color: #000;
+	font-size: 19px;
+	color: #fff;
+	padding: 0.5rem 4rem;
+	cursor: pointer;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	text-decoration: none;
+	width: 100%;
+}
+
+.checkbox-login{
+	margin: 10px 0;
+}
+
+.btn-sair{
+	float: right;
+}
+
+/*==============================================   LISTA DE FILMES   ====================================================*/
+
+
+.menu-topo{
+	padding: 1.5rem;
+	background-color: #000;
+	color: #fff;
+}
+
+.titulo-menu{
+	margin-left: 4rem;
+	margin-right: 2.5rem;
+	font-size: 25px;
+}
+
+.form-pesquisa{
+	display: inline-flex;
+	margin-right: 5rem;
+}
+
+.input-pesquisa{
+	outline: none;
+	border-radius: 5px;
+	border: none;
+	padding: 5px 8px;
+	font-size: 15px;
+	min-width: 25rem;
+	margin: 0 0 0 1rem;
+	border-bottom-right-radius: unset;
+	border-top-right-radius: unset;
+	background-color: #ccc;
+}
+
+.btn-pesquisa{
+	background-color: #ccc;
+	outline: none;
+	font-size: 18px;
+	border-radius: 3px;
+	border: none;
+	padding: 5px 18px;
+	font-size: 15px;
+	border-bottom-left-radius: unset;
+	border-top-left-radius: unset;
+	cursor: pointer;
+	border-left: 2px solid #aaa;
+}
+
+.icon-menu{
+	color: #fff;
+	float: right;
+}
+
+.ul-menu{
+	display: inline;
+}
+
+.lista-menu{
+	list-style: none;
+	display: inline;
+	padding: 5px 10px;
+	margin: 0 10px;
+}
+
+.link-menu{
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+}

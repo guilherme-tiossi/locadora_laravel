@@ -4,29 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
+    <script src="{{url('https://kit.fontawesome.com/051b5b0d64.js')}}" crossorigin="anonymous"></script>
+    <title>Barkaflix</title>
 </head>
 <body>
 
 <section name="menu_inicial">
-    <h2> Barkaflix </h2>    
-    <p> Bem vindo, usuário! </p>
-    <a href="deslogar"> Sair </a>
 <header id="menu">
     <nav>
-        <ul>
-            <li> <a href="/lista-filmes"> Filmes para alugar </a> </li>
-            <li> <a href="/filmes-alugados"> Meus filmes alugados </a> </li>
+        <div style="display: flex;">
+            <h2 class="titulo-menu"> Barkaflix</h2>
+            <form class="form-pesquisa">
+                <input type="text" name="pesquisa" class="input-pesquisa">
+                <button type="submit" name="pesquisar" class="btn-pesquisa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <ul class="menu-lateral">
+            <li class="lista-menu"> <a class="link-menu" href="/lista-filmes"> Filmes para alugar </a> </li>
+            <li class="lista-menu"> <a class="link-menu" href="/filmes-alugados"> Meus filmes alugados </a> </li>
+            <li class="lista-menu"> <a class="link-menu" href="deslogar"> Sair </a> </li>
         </ul>
     </nav>
 </header>
 </section>
 
 @yield('content')
-
-    <footer>
-        <p> Todos os direitos reservados, Barkaflix 2022 </p>
-    </footer>
+<i class="fa-solid fa-magnifying-glass">
 
 </body>
 </html>
