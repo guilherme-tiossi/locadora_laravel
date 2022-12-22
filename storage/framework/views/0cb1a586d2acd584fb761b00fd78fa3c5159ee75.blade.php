@@ -1,0 +1,1 @@
+components.application-logo

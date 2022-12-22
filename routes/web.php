@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cadastro', function(){
-    return view('cadastro');
+Route::get('/lista-filmes', function () {
+    return view('lista-filmes');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/login', function(){
-    return view('login');
-});
+require __DIR__.'/auth.php';
 
-Route::get('/filmes', 'App\Http\Controllers\tbfilmesController@listarfilmes');
-
-Route::post('/cadastro/inserir', 'App\Http\Controllers\tbusuariosController@store');
+Route::get('/dashboard', 'App\Http\Controllers\tbfilmesController@listarfilmes');
