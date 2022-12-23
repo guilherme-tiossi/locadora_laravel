@@ -15,10 +15,6 @@ use App\Providers\RouteServiceProvider;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/lista-filmes', function () {
     return redirect()->intended(RouteServiceProvider::HOME);
 })->middleware(['auth', 'verified'])->name('dashboard');

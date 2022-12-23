@@ -17,7 +17,7 @@
             <li class="lista-menu">
                 <form method="POST" class="btn-sair" action="{{ route('logout') }}">
                     @csrf
-                    <x-dropdown-link class="link-menu" :href="route('logout')"
+                    <x-dropdown-link class="link-menu" :href="'/logout'"
                         onclick="event.preventDefault();
                         this.closest('form').submit();">
                         {{ __('Sair') }}
