@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Providers\RouteServiceProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +14,11 @@ use App\Providers\RouteServiceProvider;
 |
 */
 
-Route::get('/lista-filmes', function () {
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Route::get('/dashboard', 'App\Http\Controllers\tbfilmesController@listarfilmes', function () {
     return redirect()->intended(RouteServiceProvider::HOME);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -27,4 +30,3 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/dashboard', 'App\Http\Controllers\tbfilmesController@listarfilmes');
