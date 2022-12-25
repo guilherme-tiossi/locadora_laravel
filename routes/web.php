@@ -22,6 +22,10 @@ Route::get('/dashboard', 'App\Http\Controllers\tbfilmesController@listarfilmes',
     return redirect()->intended(RouteServiceProvider::HOME);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/adm', function() {
+    return view('adm_inicial');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
