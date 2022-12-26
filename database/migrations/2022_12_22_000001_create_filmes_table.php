@@ -36,7 +36,7 @@ return new class extends Migration
                 'genero_filme' => 1,
             ],
             [
-                'titulo_filme' => 'Kill Bill Vol. 1"',
+                'titulo_filme' => 'Kill Bill Vol. 1',
                 'sinopse_filme' => 'Noiva assassina é traída por antigo grupo e fica em coma por quatro anos. Quando acorda, procura vingança e mata seus companheiros um por um. Ao confrontar seu antigo mestre e amante, uma surpresa a espera.',
                 'valor_filme' => 30.00,
                 'disponiveis_filme' => 5,
