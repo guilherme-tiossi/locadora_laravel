@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Locatario;
-use App\Models\tbalugueisModel;
+use App\Models\AluguelFilmeModel;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class meusFilmes extends Controller
 {
     public function listarmeusfilmes(){
-        $filmes = tbalugueisModel($table)
-        ->select('id_filme')
-        ->join('tbfilmes', 'tbfilmes.id_filme', '=', 'tbalugueis.id_filme')
-        ->where('tbfilmes.titulo_filme', $country)
+        $alugueis = DB::table('tbalugueis')
+        ->join('tbfilmes', 'tbalugueis.id_filme', '=', 'tbfilmes.id_filme',)
+        ->select('tbalugueis.id_filme', 'tbfilmes.titulo_filme')
         ->get();
-        return view('meus_filmes', compact('filmes'));
+        return view('meus_filmes', compact('alugueis'));
     }
 }

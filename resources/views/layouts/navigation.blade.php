@@ -12,7 +12,7 @@
         <div class="div-center">
         <ul class="ul-menu">
             <li class="lista-menu"> <a class="link-menu" href="/dashboard"> Filmes para alugar </a> </li>
-            <li class="lista-menu"> <a class="link-menu" href="/filmes-alugados"> Meus filmes alugados </a> </li>
+            <li class="lista-menu"> <a class="link-menu" href="/meus_filmes"> Meus filmes alugados </a> </li>
             <li class="lista-menu">
                 <form method="POST" class="btn-sair" action="{{ route('logout') }}">
                     @csrf

@@ -22,6 +22,10 @@ Route::get('/dashboard', 'App\Http\Controllers\tbfilmesController@listarfilmes',
     return redirect()->intended(RouteServiceProvider::HOME);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/meus_filmes', 'App\Http\Controllers\Locatario\meusFilmes@listarmeusfilmes', function(){
+    return redirect()->intended(RouteServiceProvider::HOME);
+})->middleware(['auth', 'verified'])->name('meus_filmes');
+
 Route::get('/adm', function() {
     return view('adm_inicial');
 });
