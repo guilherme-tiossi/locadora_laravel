@@ -28,7 +28,8 @@ Route::get('/meus_filmes', 'App\Http\Controllers\Locatario\meusFilmes@listarmeus
 
 Route::get('/adm', function() {
     return view('adm_inicial');
-});
+})->middleware('admin');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
