@@ -17,6 +17,6 @@ class AluguelFilmeController extends Controller
         $filme_alugado->id_user = $user_id;
         $filme_alugado->validade_aluguel = $request->data;
         $filme_alugado->save();
-        return redirect('dashboard');
+        return redirect('meus_filmes');
     }
 }

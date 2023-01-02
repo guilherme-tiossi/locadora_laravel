@@ -20,7 +20,7 @@ class tbfilmesController extends Controller
     public function listarfilmes()
     {
         $filmes = tbfilmesModel::all();
-        return view('lista-filmes', compact('filmes'));
+        return view('lista_filmes', compact('filmes'));
     }
 
 
