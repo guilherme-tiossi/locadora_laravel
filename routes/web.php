@@ -26,10 +26,13 @@ Route::get('/meus_filmes', 'App\Http\Controllers\Locatario\meusFilmes@listarmeus
     return redirect()->intended(RouteServiceProvider::HOME);
 })->middleware(['auth', 'verified'])->name('meus_filmes');
 
-Route::get('/adm', function() {
-    return view('adm_inicial');
+Route::get('/dashboard_adm', function() {
+    return view('dashboard_adm');
 })->middleware('admin');
 
+Route::get('/crud_adm', function() {
+    return view('crud_adm');
+})->middleware('admin');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
