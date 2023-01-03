@@ -30,9 +30,14 @@ Route::get('/dashboard_adm', function() {
     return view('dashboard_adm');
 })->middleware('admin');
 
-Route::get('/crud_adm', function() {
+Route::get('/crud_adm', 'App\Http\Controllers\tbgenerosController@listargeneros', function() {
     return view('crud_adm');
 })->middleware('admin');
+
+    Route::post('create_genero', 'App\Http\Controllers\tbgenerosController@store')->name('create_genero');
+    Route::post('create_filme', 'App\Http\Controllers\tbfilmesController@store')->name('create_filme');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
