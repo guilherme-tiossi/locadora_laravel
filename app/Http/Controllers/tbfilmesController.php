@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tbfilmesModel;
+use Illuminate\Support\Facades\DB;
+
 
 class tbfilmesController extends Controller
 {
@@ -16,10 +18,13 @@ class tbfilmesController extends Controller
     {
 
     }
-
+    
     public function listarfilmes()
     {
-        $filmes = tbfilmesModel::all();
+        $filmes = DB::table('tbfilmes')
+        ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
+        ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbgeneros.nome_genero')
+        ->get();
         return view('lista_filmes', compact('filmes'));
     }
 
@@ -42,7 +47,15 @@ class tbfilmesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $filme = tbfilmesModel::create([
+            'titulo_filme' => $request->titulo_filme,
+            'sinopse_filme' => $request->sinopse_filme,
+            'valor_filme' => $request->valor_filme,
+            'disponiveis_filme' => $request->disponiveis_filme,
+            'genero_filme' => $request->genero_filme,
+        ]);
+
+        return redirect('/crud_adm');
     }
 
     /**
