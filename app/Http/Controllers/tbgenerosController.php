@@ -42,7 +42,11 @@ class tbgenerosController extends Controller
      */
     public function store(Request $request)
     {
+        $filme = tbgenerosModel::create([
+            'nome_genero' => $request->genero,
+        ]);
 
+        return redirect('/crud_adm');
     }
 
     /**

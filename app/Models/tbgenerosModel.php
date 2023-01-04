@@ -11,4 +11,5 @@ class tbgenerosModel extends Model
     
     protected $table = "tbgeneros";
     public $timestamps = false;
+    protected $fillable = ["nome_genero"];
 }
