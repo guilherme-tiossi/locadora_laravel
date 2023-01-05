@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/alugar', 'App\Http\Controllers\Locatario\AluguelFilmeController@alugar');
-
+    Route::get('/devolver', 'App\Http\Controllers\Locatario\AluguelFilmeController@devolver');
 });
 
 require __DIR__.'/auth.php';

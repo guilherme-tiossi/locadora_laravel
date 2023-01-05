@@ -6,7 +6,7 @@
                 <div class="p-6 text-gray-900">
                 @foreach($alugueis as $f)
                     <h1> {{$f->titulo_filme}} </h1>
-                    
+                    <br> <a href='devolver?filme={{$f->id_filme}}'> Devolver  </a>
                     <br> <br>
                 @endforeach
                 </div>
