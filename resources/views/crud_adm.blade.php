@@ -74,21 +74,22 @@
 <div class="div-center">
 <div class="listaFilmesAdm" id="listaFilmes"> 
         @foreach($filmes as $f)
+                            <script> let id = <?php echo $f->id_filme; ?>; </script>
+            <div id="{{$f->id_filme}}" class="filme">
             <p> {{$f->id_filme}} </p> <br>
             <p> {{$f->titulo_filme}} </p> <br>
             <a onclick="editarFilme()"> editar </a>
-        @endforeach
-    </div>
-
-    <div class="to-hide" id="listaCompletaFilmes"> 
-        @foreach($filmes as $f)
+            </div>
+        <div class="to-hide" id="{{$f->id_filme}}Completo"> 
             <p> {{$f->id_filme}} </p> <br>
             <p> {{$f->titulo_filme}} </p> <br>
             <p> {{$f->genero_filme}} </p> <br>
             <p> {{$f->sinopse_filme}} </p> <br>
-            <a onclick="return editarFilme()"> editar </a>
+            <a onclick="editarFilme()"> editar </a>
+        </div>
         @endforeach
-    </div>
+</div>
+
 
 </div>
 

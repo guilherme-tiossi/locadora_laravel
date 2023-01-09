@@ -11,17 +11,17 @@ function verificaLogin(){
 }
 
 function editarFilme(){
-    let listaCompletaFilmes = document.getElementById('listaCompletaFilmes').className;
-    let listaFilmes = document.getElementById('listaFilmes').className;
+    let listaCompletaFilmes = document.getElementById(id + 'Completo').className; //to-hide
+    let listaFilmes = document.getElementById(id).className; //filme
     switch (listaFilmes){
-        case (listaFilmes = 'listaFilmesAdm'):
-            document.getElementById('listaCompletaFilmes').className = 'listaFilmesAdm';
-            document.getElementById('listaFilmes').className = 'to-hide';
+        case (listaFilmes = 'filme'):
+            document.getElementById(id + 'Completo').className = 'filme';
+            document.getElementById(id).className = 'to-hide';
         break;
     
     case (listaFilmes = 'to-hide'):
-        document.getElementById('listaCompletaFilmes').className = 'to-hide';
-        document.getElementById('listaFilmes').className = 'listaFilmesAdm';
+        document.getElementById(id + 'Completo').className = 'to-hide';
+        document.getElementById(id).className = 'filme';
         break;
     }
 }
