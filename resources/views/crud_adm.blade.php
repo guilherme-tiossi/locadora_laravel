@@ -24,7 +24,7 @@
     </div>
     
                     <!-- form filme -->
-    <div class="div-login">
+    <div class="div-crud-adm">
     <form method="POST" action="{{ route('create_filme') }}">
         @csrf
 
@@ -59,6 +59,37 @@
         </div>
     </form>
     </div>
+</div>
+
+<div class="div-center">
+    <div class="listaGenerosAdm"> 
+        @foreach($generos as $g)
+            <p> {{$g->id_genero}} </p> <br>
+            <p> {{$g->nome_genero}} </p>
+            <a onclick="return editar()"> editar </a> 
+        @endforeach
+    </div>
+</div>
+
+<div class="div-center">
+<div class="listaFilmesAdm" id="listaFilmes"> 
+        @foreach($filmes as $f)
+            <p> {{$f->id_filme}} </p> <br>
+            <p> {{$f->titulo_filme}} </p> <br>
+            <a onclick="editarFilme()"> editar </a>
+        @endforeach
+    </div>
+
+    <div class="to-hide" id="listaCompletaFilmes"> 
+        @foreach($filmes as $f)
+            <p> {{$f->id_filme}} </p> <br>
+            <p> {{$f->titulo_filme}} </p> <br>
+            <p> {{$f->genero_filme}} </p> <br>
+            <p> {{$f->sinopse_filme}} </p> <br>
+            <a onclick="return editarFilme()"> editar </a>
+        @endforeach
+    </div>
+
 </div>
 
 </body>

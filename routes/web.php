@@ -30,7 +30,7 @@ Route::get('/dashboard_adm', function() {
     return view('dashboard_adm');
 })->middleware('admin');
 
-Route::get('/crud_adm', 'App\Http\Controllers\tbgenerosController@listargeneros', function() {
+Route::get('/crud_adm', 'App\Http\Controllers\AdminCrudController@index', function() {
     return view('crud_adm');
 })->middleware('admin');
 
