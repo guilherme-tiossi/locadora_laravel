@@ -11,5 +11,5 @@ class AluguelFilmeModel extends Model
     
     protected $table = "tbalugueis";
     public $timestamps = false;
-    protected $fillable = ['id_user', 'id_filme', 'validade_aluguel'];
+    protected $fillable = ['id_user', 'id_filme', 'validade_aluguel', 'valor_filme'];
 }

@@ -12,16 +12,14 @@ class meusFilmes extends Controller
 {
     public function listarmeusfilmes(){
         $user_id = Auth::user()->id;
-        $alugueis = DB::table('tbalugueis')
+        $verificacao_devolvido = DB::table('tbalugueis')
         ->join('tbfilmes', 'tbalugueis.id_filme', '=', 'tbfilmes.id_filme')
-        ->select('tbalugueis.id_filme', 'tbfilmes.titulo_filme', 'tbalugueis.validade_aluguel')
-        ->where('tbalugueis.id_user', '=', $user_id)
+        ->select('tbalugueis.id_filme', 'tbalugueis.validade_aluguel')
+        ->where('tbalugueis.id_user', '=', $user_id)->where('tbalugueis.devolvido', '=', '0')
         ->get();
         $data = date("Y-m-d");
-        foreach($alugueis as $f){
+        foreach($verificacao_devolvido as $f){
             $validade = $f->validade_aluguel;
-            //dd($data . " > " . $validade);
-
             if ($data > $validade){
                 $disponiveis_filme = DB::table('tbfilmes')->where('id_filme', '=', '1')->value('disponiveis_filme');
                 $user_id = Auth::user()->id;
@@ -31,13 +29,17 @@ class meusFilmes extends Controller
                     ['id_filme', '=', $f->id_filme],
                     ['id_user', '=', $user_id],
                 ])
-                ->delete();
+                ->update(['devolvido' => true]);
                 DB::table('tbfilmes')
                 ->where('id_filme', $f->id_filme)
                 ->update(['disponiveis_filme' => $disponiveis_filme]);
             }
         }
-
+        $alugueis = DB::table('tbalugueis')
+        ->join('tbfilmes', 'tbalugueis.id_filme', '=', 'tbfilmes.id_filme')
+        ->select('tbalugueis.id_filme', 'tbfilmes.titulo_filme', 'tbalugueis.validade_aluguel')
+        ->where('tbalugueis.id_user', '=', $user_id)->where('tbalugueis.devolvido', '=', '0')
+        ->get();
         return view('meus_filmes', compact('alugueis'));
     }
 }

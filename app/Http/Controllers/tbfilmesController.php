@@ -23,7 +23,7 @@ class tbfilmesController extends Controller
     {
         $filmes = DB::table('tbfilmes')
         ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
-        ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbgeneros.nome_genero')
+        ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.valor_filme', 'tbgeneros.nome_genero')
         ->get();
         return view('lista_filmes', compact('filmes'));
     }

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_filme');
             $table->date('validade_aluguel');
+            $table->float('valor_filme')->length(4,2);
+            $table->boolean('devolvido')->default(false);
             $table->foreign('id_user')
             ->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_filme')

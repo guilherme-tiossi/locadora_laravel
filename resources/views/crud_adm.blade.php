@@ -85,10 +85,13 @@
             para então recuperar esse id na função pegarId() !--> 
             <br> <br>
             </div>
+        @endforeach <!-- fim do foreach !-->
 
                <script>
                 function pegarId(){
-                   console.log(document.getElementById("button").value);
+                   let id = document.getElementById("button").value;
+                   //document.getElementById("button").value
+                   console.log(id);
                    // a ideia aqui era só exibir o value do button esperando que exiba no console o id de
                    // x filme, mas o que acontece é que o console exibe apenas o primeiro ID dos filmes do
                    // foreach pelo número de vezes igual a quantidade de filmes dentro do foreach (se tiver
@@ -98,7 +101,6 @@
                    //a intenção era que em todo botão clicado de cada filme específico fosse exibido seu id no console
                 }        
                </script>
-        @endforeach <!-- fim do foreach !-->
 </div>
 
 </body>
