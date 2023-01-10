@@ -10,7 +10,7 @@ function verificaLogin(){
     return validar;
 }
 
-function editarFilme(){
+function exibirFilmesCompletos(){
     let listaCompletaFilmes = document.getElementById(id + 'Completo').className; //to-hide
     let listaFilmes = document.getElementById(id).className; //filme
     switch (listaFilmes){
@@ -24,4 +24,5 @@ function editarFilme(){
         document.getElementById(id).className = 'filme';
         break;
     }
+    return;
 }

@@ -71,26 +71,34 @@
     </div>
 </div>
 
-<div class="div-center">
 <div class="listaFilmesAdm" id="listaFilmes"> 
-        @foreach($filmes as $f)
-                            <script> let id = <?php echo $f->id_filme; ?>; </script>
-            <div id="{{$f->id_filme}}" class="filme">
-            <p> {{$f->id_filme}} </p> <br>
-            <p> {{$f->titulo_filme}} </p> <br>
-            <a onclick="editarFilme()"> editar </a>
+
+        <!-- objetivo: um foreach que lê o id e o nome de cada filme da tabela dentro de uma div (essa parte está 
+        funcionando!), e cada div de filme deve ter um botão que, quando acionado, exiba no console o id do filme
+        da div correspondente  !-->
+        @foreach($filmes as $f) <!-- lendo todos os filmes do banco de dados (variável $filmes vindo do controller) !--> 
+            <div class="filme" id="{{$f->id_filme}}">
+            <p> {{$f->id_filme}} </p> <!-- leitura do id de x filme !-->
+            <p> {{$f->titulo_filme}} </p> <!-- leitura do título de x filme !-->
+            <button id="button" value="{{$f->id_filme}}" onclick="pegarId()"> Exibir id_filme no console </button>
+            <!-- botão para recuperar o id_filme do filme sendo exibido nessa div de filme via value
+            para então recuperar esse id na função pegarId() !--> 
+            <br> <br>
             </div>
-        <div class="to-hide" id="{{$f->id_filme}}Completo"> 
-            <p> {{$f->id_filme}} </p> <br>
-            <p> {{$f->titulo_filme}} </p> <br>
-            <p> {{$f->genero_filme}} </p> <br>
-            <p> {{$f->sinopse_filme}} </p> <br>
-            <a onclick="editarFilme()"> editar </a>
-        </div>
-        @endforeach
-</div>
 
-
+               <script>
+                function pegarId(){
+                   console.log(document.getElementById("button").value);
+                   // a ideia aqui era só exibir o value do button esperando que exiba no console o id de
+                   // x filme, mas o que acontece é que o console exibe apenas o primeiro ID dos filmes do
+                   // foreach pelo número de vezes igual a quantidade de filmes dentro do foreach (se tiver
+                   // 15 filmes na tabela, ele exibe o id do 1/15 filme quinze vezes)
+                   
+                   //outra questão que eu não entendi direito é que essa função só é executada uma vez, quando
+                   //a intenção era que em todo botão clicado de cada filme específico fosse exibido seu id no console
+                }        
+               </script>
+        @endforeach <!-- fim do foreach !-->
 </div>
 
 </body>
