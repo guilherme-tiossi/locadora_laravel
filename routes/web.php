@@ -26,7 +26,7 @@ Route::get('/meus_filmes', 'App\Http\Controllers\Locatario\meusFilmes@listarmeus
     return redirect()->intended(RouteServiceProvider::HOME);
 })->middleware(['auth', 'verified'])->name('meus_filmes');
 
-Route::get('/dashboard_adm', function() {
+Route::get('/dashboard_adm', 'App\Http\Controllers\financeiroController@index', function() {
     return view('dashboard_adm');
 })->middleware('admin');
 
