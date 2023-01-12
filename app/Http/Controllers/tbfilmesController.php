@@ -5,7 +5,7 @@ use App\Models\AluguelFilmeModel;
 use Illuminate\Http\Request;
 use App\Models\tbfilmesModel;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 class tbfilmesController extends Controller
 {
@@ -21,10 +21,20 @@ class tbfilmesController extends Controller
     
     public function listarfilmes()
     {
+        $user_id = Auth::user()->id;
+        $meus_filmes = DB::table('tbalugueis')
+        ->join('tbfilmes', 'tbalugueis.id_filme', '=', 'tbfilmes.id_filme')
+        ->select('tbalugueis.id_filme', 'tbalugueis.validade_aluguel')
+        ->where('tbalugueis.id_user', '=', $user_id)->where('tbalugueis.devolvido', '=', '0')
+        ->get();
+        $banana = array();
+        foreach ($meus_filmes as $mf){
+            array_push($banana, $mf->id_filme); 
+        };
         $filmes = DB::table('tbfilmes')
         ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
         ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.valor_filme', 'tbgeneros.nome_genero')
-        ->where('tbfilmes.disponiveis_filme', '>', 0)
+        ->where('tbfilmes.disponiveis_filme', '>', 0)->whereNotIn('tbfilmes.id_filme', $banana)
         ->get();
         return view('lista_filmes', compact('filmes'));
     }
