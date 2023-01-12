@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\AluguelFilmeModel;
 use Illuminate\Http\Request;
 use App\Models\tbfilmesModel;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +24,7 @@ class tbfilmesController extends Controller
         $filmes = DB::table('tbfilmes')
         ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
         ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.valor_filme', 'tbgeneros.nome_genero')
+        ->where('tbfilmes.disponiveis_filme', '>', 0)
         ->get();
         return view('lista_filmes', compact('filmes'));
     }
