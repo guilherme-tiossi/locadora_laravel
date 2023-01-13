@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Locatario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AluguelFilmeModel;
-use App\Models\AlugueisTotaisModel;
 use Illuminate\Support\Facades\Auth;
 use App\Model\tbfilmesModel;
 use Illuminate\Support\Facades\DB;

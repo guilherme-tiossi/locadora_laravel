@@ -57,6 +57,6 @@ class financeiroController extends Controller
             }
             $lucros_totais = $lucros_totais + $lt->valor_filme;
         }
-        return view('dashboard_adm', compact('alugueis_totais', 'lucros_totais', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'));
+        return view('dashboard_adm', compact('alugueis_totais', 'lucros_totais', 'ano', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'));
     }
 }
