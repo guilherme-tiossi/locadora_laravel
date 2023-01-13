@@ -28,7 +28,7 @@ Route::get('/meus_filmes', 'App\Http\Controllers\Locatario\meusFilmes@listarmeus
 
 Route::get('/dashboard_adm', 'App\Http\Controllers\financeiroController@index', function() {
     return view('dashboard_adm');
-})->middleware('admin');
+})->middleware('admin')->name('pegar_ano');
 
 Route::get('/crud_adm', 'App\Http\Controllers\AdminCrudController@index', function() {
     return view('crud_adm');
