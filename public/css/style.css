@@ -220,5 +220,14 @@
 	padding: 20px;
 	margin: 2rem;
 	margin-top: 5%;
-	margin-left: 0;
+}
+
+.div-func-adm{
+	padding: 20px;
+	margin-top: 5%;
+}
+
+.div-crud-adm-func{
+	padding: 20px;
+	margin: 1rem;
 }

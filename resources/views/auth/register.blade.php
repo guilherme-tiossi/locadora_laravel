@@ -23,7 +23,7 @@
 
         <!-- Email Address -->
         <div>
-            <x-text-input id="email" type="email" name="email" placeholder="email" class="input-cadastro-esp" :value="old('email')" required />
+            <x-text-input id="email" type="email" name="email" placeholder="E-mail" class="input-cadastro-esp" :value="old('email')" required />
             <x-input-error :messages="$errors->get('email')" />
         </div>
         </div>

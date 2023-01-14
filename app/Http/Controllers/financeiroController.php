@@ -17,6 +17,7 @@ class financeiroController extends Controller
         $jan = 0; $jan = 0; $jan = 0; $fev = 0; $mar = 0; $abr = 0; $mai = 0; $jun = 0; $jul = 0; $ago = 0; $set = 0; $out = 0; $nov = 0; $dez = 0; 
         $ano = $request->ano;
         if ($ano == null){
+            $ano = "Todos";
             foreach ($alugueis_totais as $lt){
                 switch ($lt->validade_aluguel){
                    case(str_contains($lt->validade_aluguel, '-01-')):

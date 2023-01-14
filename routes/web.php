@@ -34,9 +34,13 @@ Route::get('/crud_adm', 'App\Http\Controllers\AdminCrudController@index', functi
     return view('crud_adm');
 })->middleware('admin');
 
+Route::get('/empregados_adm','App\Http\Controllers\funcionariosController@index', function() {
+    return view('empregados_adm');
+})->middleware('admin');
+
     Route::post('create_genero', 'App\Http\Controllers\tbgenerosController@store')->name('create_genero');
     Route::post('create_filme', 'App\Http\Controllers\tbfilmesController@store')->name('create_filme');
-
+    Route::post('create_funcionario', 'App\Http\Controllers\funcionariosController@store')->name('create_funcionario');
 
 
 Route::middleware('auth')->group(function () {
