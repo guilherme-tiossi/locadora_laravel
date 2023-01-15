@@ -10,22 +10,22 @@ function verificaLogin(){
     return validar;
 }
 
-function exibirFilmesCompletos(){
-    let listaCompletaFilmes = document.getElementById(id + 'Completo').className; //to-hide
-    let listaFilmes = document.getElementById(id).className; //filme
-    switch (listaFilmes){
-        case (listaFilmes = 'filme'):
-            document.getElementById(id + 'Completo').className = 'filme';
+function exibirFilmesCompletos(clicked_id){
+    let id = clicked_id;
+    let filmes = document.getElementById(id).className; //filme
+    console.log(id);
+        if (id.includes('_completo')){
+            let id_novo = id.replace('_completo', '');
+            document.getElementById(id_novo).className = 'filme';
             document.getElementById(id).className = 'to-hide';
-        break;
-    
-    case (listaFilmes = 'to-hide'):
-        document.getElementById(id + 'Completo').className = 'to-hide';
-        document.getElementById(id).className = 'filme';
-        break;
-    }
-    return;
+        }
+        else{
+            let id_novo = id + '_completo';
+            document.getElementById(id_novo).className = 'filme';
+            document.getElementById(id).className = 'to-hide';
+        }
 }
+
 
 function mascara_cpf(i){
    

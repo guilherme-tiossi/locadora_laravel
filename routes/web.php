@@ -38,6 +38,10 @@ Route::get('/empregados_adm','App\Http\Controllers\funcionariosController@index'
     return view('empregados_adm');
 })->middleware('admin');
 
+Route::get('/teste', function() {
+    return view('teste');
+});
+
     Route::post('create_genero', 'App\Http\Controllers\tbgenerosController@store')->name('create_genero');
     Route::post('create_filme', 'App\Http\Controllers\tbfilmesController@store')->name('create_filme');
     Route::post('create_funcionario', 'App\Http\Controllers\funcionariosController@store')->name('create_funcionario');
