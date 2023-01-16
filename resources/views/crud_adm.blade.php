@@ -80,7 +80,8 @@
             <p> {{$g->id_genero}} </p>
             <input type='hidden' value="{{$g->id_genero}}" name="id_genero"> <br>   
             <input type='text' value="{{$g->nome_genero}}" name="nome_genero"> <br>   
-            <input type="submit" value="enviar">
+            <input type="submit" value="enviar"> <br>
+            <a href="{{ route('delete_genero') }}?id_genero={{$g->id_genero}}"> Deletar </a> <br>
             <button id="button" type="button" value="{{$id_genero_completo}}" onclick="editarGeneros(this.value)"> Ver menos </button>
             <br> <br>
     </form>
@@ -115,7 +116,8 @@
         @foreach($generos as $g)
                 <option value='{{$g->id_genero}}' <?php if($g->id_genero == $f->genero_filme){echo 'selected="{{$g->id_genero}}"';};?> selected="{{$f->genero_filme}}"> {{$g->nome_genero}}</option>
         @endforeach
-            </select>
+            </select> <br>
+        <a href="{{ route('delete_filme') }}?id_filme={{$f->id_filme}}"> Deletar </a> <br>
         <input type="submit" value="enviar">
             <button id="button" type="button" value="{{$id_filme_completo}}" onclick="exibirFilmesCompletos(this.value)"> Ver menos </button>
             <br> <br>

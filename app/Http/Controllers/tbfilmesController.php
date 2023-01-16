@@ -115,8 +115,11 @@ class tbfilmesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        //
+        $filme_update = DB::table('tbfilmes')
+        ->where('tbfilmes.id_filme', '=', $request->id_filme)
+        ->delete();
+        return redirect('/crud_adm');
     }
 }
