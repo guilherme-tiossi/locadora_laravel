@@ -25,4 +25,25 @@ class funcionariosController extends Controller
 
         return redirect('/empregados_adm');
     }
+
+    public function update(Request $request)
+    {
+        funcionariosModel::where('id', '=', $request->id)->update([
+            'nome' => $request->nome,
+            'sobrenome' => $request->sobrenome,
+            'cargo' => $request->cargo,
+            'salario' => $request->salario,
+            'cpf' => $request->rg,
+            'rg' => $request->cpf,
+        ]);
+
+        return redirect('/empregados_adm');
+    }
+
+    public function delete(Request $request)
+    {
+        funcionariosModel::where('id', '=', $request->id)->delete();
+
+        return redirect('/empregados_adm');
+    }
 }

@@ -118,7 +118,7 @@
         @endforeach
             </select> <br>
         <a href="{{ route('delete_filme') }}?id_filme={{$f->id_filme}}"> Deletar </a> <br>
-        <input type="submit" value="enviar">
+            <input type="submit" value="enviar">
             <button id="button" type="button" value="{{$id_filme_completo}}" onclick="exibirFilmesCompletos(this.value)"> Ver menos </button>
             <br> <br>
     </form>

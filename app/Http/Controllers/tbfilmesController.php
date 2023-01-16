@@ -77,8 +77,7 @@ class tbfilmesController extends Controller
      */
     public function update(Request $request)
     {
-        $filme_update = DB::table('tbfilmes')
-        ->where('tbfilmes.id_filme', '=', $request->id_filme)
+        tbfilmesModel::where('id_filme', '=', $request->id_filme)
         ->update(['tbfilmes.titulo_filme' => $request->titulo_filme,
          'tbfilmes.sinopse_filme' => $request->sinopse_filme,
          'tbfilmes.valor_filme' => $request->valor_filme,
@@ -117,9 +116,7 @@ class tbfilmesController extends Controller
      */
     public function delete(Request $request)
     {
-        $filme_update = DB::table('tbfilmes')
-        ->where('tbfilmes.id_filme', '=', $request->id_filme)
-        ->delete();
+        tbfilmesModel::where('id_filme', '=', $request->id_filme)->delete();
         return redirect('/crud_adm');
     }
 }

@@ -12,7 +12,6 @@ function verificaLogin(){
 
 function exibirFilmesCompletos(clicked_id){
     let id = clicked_id;
-    let filmes = document.getElementById(id).className; //filme
     console.log(id);
         if (id.includes('_completo')){
             let id_novo = id.replace('_completo', '');
@@ -41,6 +40,22 @@ function editarGeneros(clicked_id){
         }
 }
 
+function mostrarMaisFuncionarios(clicked_id){
+    let id = clicked_id;
+    console.log(id);
+        if (id.includes('_completo')){
+            console.log("diminui");
+            let id_novo = id.replace('_completo', '');
+            document.getElementById(id_novo).className = 'funcionario';
+            document.getElementById(id).className = 'to-hide';
+        }
+        else{
+            let id_novo = id + '_completo';
+            console.log("aumenta");
+            document.getElementById(id_novo).className = 'funcionario';
+            document.getElementById(id).className = 'to-hide';
+        }
+}
 
 function mascara_cpf(i){
    

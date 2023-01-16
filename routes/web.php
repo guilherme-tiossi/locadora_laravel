@@ -46,6 +46,8 @@ Route::get('/teste', function() {
     Route::post('create_filme', 'App\Http\Controllers\tbfilmesController@store')->name('create_filme');
     Route::post('update_filme', 'App\Http\Controllers\tbfilmesController@update')->name('update_filme');
     Route::post('update_genero', 'App\Http\Controllers\tbgenerosController@update')->name('update_genero');
+    Route::post('update_funcionario', 'App\Http\Controllers\funcionariosController@update')->name('update_funcionario');
+    Route::get('delete_funcionario', 'App\Http\Controllers\funcionariosController@delete')->name('delete_funcionario');
     Route::get('delete_genero', 'App\Http\Controllers\tbgenerosController@delete')->name('delete_genero');
     Route::get('delete_filme', 'App\Http\Controllers\tbfilmesController@delete')->name('delete_filme');
     Route::post('create_funcionario', 'App\Http\Controllers\funcionariosController@store')->name('create_funcionario');

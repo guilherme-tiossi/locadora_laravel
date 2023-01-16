@@ -31,8 +31,7 @@ class tbgenerosController extends Controller
      */
     public function update(Request $request)
     {
-        $filme_update = DB::table('tbgeneros')
-        ->where('tbgeneros.id_genero', '=', $request->id_genero)
+        tbgenerosModel::where('tbgeneros.id_genero', '=', $request->id_genero)
         ->update(['tbgeneros.nome_genero' => $request->nome_genero,
         ]);
         return redirect('/crud_adm');
@@ -94,9 +93,7 @@ class tbgenerosController extends Controller
      */
     public function delete(Request $request)
     {
-        $filme_update = DB::table('tbgeneros')
-        ->where('tbgeneros.id_genero', '=', $request->id_genero)
-        ->delete();
+        tbgenerosModel::where('tbgeneros.id_genero', '=', $request->id_genero)->delete();
         return redirect('/crud_adm');
     }
 }

@@ -4,9 +4,35 @@
     <div class="div-center">
     <div class="div-func-adm">
     @foreach ($funcionarios as $f)
+        <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
+        
+        <div class="funcionario" id="{{$f->id}}">
+        <p> {{$f->id}} </p>
         <p> {{$f->nome}} {{$f->sobrenome}} </p>
         <p> {{$f->cargo}} </p>
         <p> {{$f->salario}} </p>
+        <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver mais </button>  
+        </div>
+
+        <div class="to-hide" id="{{$id_completo}}">
+            <form method="POST" action="{{route('update_funcionario')}}">
+            @csrf
+            <p> {{$f->id}} </p>
+            <input type="hidden" value="{{$f->id}}" name="id">
+            <input type="text" value="{{$f->nome}}" name="nome">
+            <input type="text" value="{{$f->sobrenome}}" name="sobrenome"> <br>
+            <input type="text" value="{{$f->cargo}}" name="cargo"> <br>
+            <input type="text" value="{{$f->salario}}" name="salario"> <br>
+            <p> rg </p>
+            <input id="rg" type="text" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> <br>
+            <p> cpf </p>
+            <input id="cpf" type="text" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> <br>
+            <a href="{{route('delete_funcionario')}}?id={{$f->id}}"> Deletar </a> <br>
+            <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver menos </button>  
+            <input type="submit" value="Enviar">
+            </form> 
+        </div>
+        <br>
     @endforeach
     </div> </div>
     
