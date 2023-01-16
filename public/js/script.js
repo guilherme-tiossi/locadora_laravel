@@ -26,6 +26,21 @@ function exibirFilmesCompletos(clicked_id){
         }
 }
 
+function editarGeneros(clicked_id){
+    let id_g = clicked_id;
+    console.log(id_g)
+        if (id_g.includes('_completo')){
+            let id_g_novo = id_g.replace('_completo', '');
+            document.getElementById(id_g_novo).className = 'genero';
+            document.getElementById(id_g).className = 'to-hide';
+        }
+        else{
+            let id_g_novo = id_g + '_completo';
+            document.getElementById(id_g_novo).className = 'genero';
+            document.getElementById(id_g).className = 'to-hide';
+        }
+}
+
 
 function mascara_cpf(i){
    

@@ -75,9 +75,18 @@ class tbfilmesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function update(Request $request)
     {
-        //
+        $filme_update = DB::table('tbfilmes')
+        ->where('tbfilmes.id_filme', '=', $request->id_filme)
+        ->update(['tbfilmes.titulo_filme' => $request->titulo_filme,
+         'tbfilmes.sinopse_filme' => $request->sinopse_filme,
+         'tbfilmes.valor_filme' => $request->valor_filme,
+         'tbfilmes.genero_filme' => $request->genero_filme,
+         'tbfilmes.disponiveis_filme' => $request->disponiveis_filme,
+         'tbfilmes.valor_filme' => $request->valor_filme,
+        ]);
+        return redirect('/crud_adm');
     }
 
     /**
@@ -98,10 +107,7 @@ class tbfilmesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.

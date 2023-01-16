@@ -44,6 +44,8 @@ Route::get('/teste', function() {
 
     Route::post('create_genero', 'App\Http\Controllers\tbgenerosController@store')->name('create_genero');
     Route::post('create_filme', 'App\Http\Controllers\tbfilmesController@store')->name('create_filme');
+    Route::post('update_filme', 'App\Http\Controllers\tbfilmesController@update')->name('update_filme');
+    Route::post('update_genero', 'App\Http\Controllers\tbgenerosController@update')->name('update_genero');
     Route::post('create_funcionario', 'App\Http\Controllers\funcionariosController@store')->name('create_funcionario');
 
 

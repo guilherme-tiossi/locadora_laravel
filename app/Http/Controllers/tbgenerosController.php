@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\tbgenerosModel;
+use Illuminate\Support\Facades\DB;
 
 class tbgenerosController extends Controller
 {
@@ -29,9 +29,13 @@ class tbgenerosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function update(Request $request)
     {
-        //
+        $filme_update = DB::table('tbgeneros')
+        ->where('tbgeneros.id_genero', '=', $request->id_genero)
+        ->update(['tbgeneros.nome_genero' => $request->nome_genero,
+        ]);
+        return redirect('/crud_adm');
     }
 
     /**
@@ -80,10 +84,7 @@ class tbgenerosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
