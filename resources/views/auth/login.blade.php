@@ -40,7 +40,7 @@
         <div class="checkbox-login">
             <label for="remember_me">
                 <input id="remember_me" type="checkbox" name="remember">
-                <span>{{ __('Remember me') }}</span>
+                <span>{{ __('Lembrar de mim') }}</span>
             </label>
         </div>
 
@@ -49,11 +49,6 @@
             <x-primary-button class="btn-login">
                 {{ __('Log in') }}
             </x-primary-button>
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="link-cadastro">
-                    {{ __('Esqueceu a senha?') }}
-                </a>
-            @endif
             <br>
             <div style="margin-top: 1rem;">
             <a href="{{ route('register') }}" class="btn-login2">
