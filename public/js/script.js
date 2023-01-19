@@ -48,12 +48,18 @@ function mostrarMaisFuncionarios(clicked_id){
             let id_novo = id.replace('_completo', '');
             document.getElementById(id_novo).className = 'funcionario';
             document.getElementById(id).className = 'to-hide';
+            document.getElementById("th_completo").className = '';
+            document.getElementById("th_incompleto").className = 'to-hide';
+
         }
         else{
             let id_novo = id + '_completo';
             console.log("aumenta");
             document.getElementById(id_novo).className = 'funcionario';
             document.getElementById(id).className = 'to-hide';
+            document.getElementById("th_completo").className = 'to-hide';
+            document.getElementById("th_incompleto").className = '';
+
         }
 }
 
