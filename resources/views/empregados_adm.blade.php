@@ -5,18 +5,16 @@
     <div class="div-func-adm">
     <table border="solid 1px">
 
-    @foreach ($funcionarios as $f)
-        <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
 
-    <div class="to-hide" id="th_incompleto">
+    <tr class="" id="th_incompleto">
     <th> Id </th>
     <th> Nome </th>
     <th> Cargo </th>
     <th> Salário </th>
     <th> </th>
-    </div>    
+    </tr>    
 
-    <div class="to-hide" id="th_completo">
+    <tr class="to-hide" id="th_completo">
     <th> Id </th>
     <th> Nome </th>
     <th> Cargo </th>
@@ -25,7 +23,10 @@
     <th> CPF </th>
     <th>  </th>
     <th> </th>
-    </div>
+    </tr>
+    
+    @foreach ($funcionarios as $f)
+        <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
         <tr class="funcionario" id="{{$f->id}}">
         <td> {{$f->id}} </td>
         <td> {{$f->nome}} {{$f->sobrenome}} </td>
