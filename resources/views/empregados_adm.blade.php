@@ -1,20 +1,21 @@
 @include('includes.head')
 @include('includes.header_adm')
 <body>
-    <div class="div-center">
+    <div>
     <div class="div-func-adm">
     <table border="solid 1px">
 
 
     <tr class="" id="th_incompleto">
+    <th> </th>
     <th> Id </th>
     <th> Nome </th>
     <th> Cargo </th>
     <th> Salário </th>
-    <th> </th>
     </tr>    
 
     <tr class="to-hide" id="th_completo">
+    <th> </th>
     <th> Id </th>
     <th> Nome </th>
     <th> Cargo </th>
@@ -28,17 +29,18 @@
     @foreach ($funcionarios as $f)
         <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
         <tr class="funcionario" id="{{$f->id}}">
+        <td> <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver mais </button> </td>
         <td> {{$f->id}} </td>
         <td> {{$f->nome}} {{$f->sobrenome}} </td>
         <td> {{$f->cargo}} </td>
         <td> {{$f->salario}} </td>
-        <td> <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver mais </button> </th>
         </tr>
 
         <tr class="to-hide" id="{{$id_completo}}">
             <form method="POST" action="{{route('update_funcionario')}}">
             @csrf
 
+            <td> <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver menos </button> </td>
             <td> <input type="hidden" value="{{$f->id}}" name="id"> </td>
             <td> <input type="text" value="{{$f->nome}}" name="nome">  
                  <input type="text" value="{{$f->sobrenome}}" name="sobrenome"> </td>
@@ -47,7 +49,6 @@
             <td> <input id="rg" type="text" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
             <td> <input id="cpf" type="text" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
             <td>  <a href="{{route('delete_funcionario')}}?id={{$f->id}}"> Deletar </a> 
-              <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver menos </button>   
               <input type="submit" value="Enviar"> </td>
             </form> 
         </tr>
