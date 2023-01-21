@@ -42,24 +42,22 @@ function editarGeneros(clicked_id){
 
 function mostrarMaisFuncionarios(clicked_id){
     let id = clicked_id;
-    console.log(id);
-        if (id.includes('_completo')){
-            console.log("diminui");
+            if (id.includes('_completo')){
+            let id_novo_2 = id + '_2';
             let id_novo = id.replace('_completo', '');
+            console.log(id_novo_2);
             document.getElementById(id_novo).className = 'funcionario';
             document.getElementById(id).className = 'to-hide';
             document.getElementById("th_completo").className = 'to-hide';
-            document.getElementById("th_incompleto").className = '';
-
+            document.getElementById(id_novo_2).className = 'to-hide';
         }
         else{
             let id_novo = id + '_completo';
-            console.log("aumenta");
+            let id_novo_2 = id + '_completo_2';
             document.getElementById(id_novo).className = 'funcionario';
             document.getElementById(id).className = 'to-hide';
             document.getElementById("th_completo").className = '';
-            document.getElementById("th_incompleto").className = 'to-hide';
-
+            document.getElementById(id_novo_2).className = '';
         }
 }
 
