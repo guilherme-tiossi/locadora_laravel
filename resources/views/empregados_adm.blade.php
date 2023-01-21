@@ -2,57 +2,53 @@
 @include('includes.header_adm')
 <body>
     <div class="div-func-adm">
-    <table border="solid 1px">
-
-
+    <table border="solid" class="tabela_funcionarios">
+    <h1> Funcionários </h1>
     <tr class="" id="th_incompleto">
-    <th> </th>
-    <th> Id </th>
-    <th> Nome </th>
-    <th> Cargo </th>
-    <th> Salário </th>
+        <th  style="border: none; background-color:white;"> </th>
+        <th> Id </th>
+        <th> Nome </th>
+        <th> Cargo </th>
+        <th> Salário </th>
     </tr>    
-    
     @foreach ($funcionarios as $f)
-    <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
-    <p class="to-hide">{{$id_completo_2 = $f->id . "_completo_2";}} </p>
+                    <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
+                    <p class="to-hide">{{$id_completo_2 = $f->id . "_completo_2";}} </p>
+                    <p class="to-hide">{{$th_completo = $f->id . "_th_completo";}} </p>
+
         <tr class="funcionario" id="{{$f->id}}">
-        <td> <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> ( + ) </button> </td>
-        <td> {{$f->id}} </td>
-        <td> {{$f->nome}} {{$f->sobrenome}} </td>
-        <td> {{$f->cargo}} </td>
-        <td> {{$f->salario}} </td>
+            <td style="border: none;"> <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> + </button> </td>
+            <td style="border: none;"> {{$f->id}} </td>
+            <td class="funcionario_nome"> {{$f->nome}} {{$f->sobrenome}} </td>
+            <td class="funcionario_outros"> {{$f->cargo}} </td>
+            <td class="funcionario_salario"> {{$f->salario}} </td>
         </tr>
 
         <tr class="to-hide" id="{{$id_completo}}">
-            <form method="POST" action="{{route('update_funcionario')}}">
-            @csrf
-
-            <td> <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> (—) </button> </td>
-            <td> <input type="hidden" value="{{$f->id}}" name="id"> </td>
-            <td> <input type="text" class="funcionario_nome" value="{{$f->nome}}" name="nome">  
-                 <input type="text" class="funcionario_nome" value="{{$f->sobrenome}}" name="sobrenome"> </td>
-            <td> <input type="text" class="funcionario_outros" value="{{$f->cargo}}" name="cargo"> </td>
-            <td> <input type="text" class="funcionario_salario" value="{{$f->salario}}" name="salario"> </td>
-        </tr>
-        
-        <tr class="to-hide" id="th_completo">
-            <th> </th>
-            <th>  </th>
-            <th> RG </th>
-            <th> CPF </th>
-            <th> Opções </th>
-        </tr>
-        <tr class="to-hide" id="{{$id_completo_2}}"> 
-            <?php // dd($id_completo_2);?>
-            <td> </td>
-            <td> </td>
-            <td> <input id="rg" type="text" class="funcionario_outros" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
-            <td> <input id="cpf" type="text" class="funcionario_outros" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
-            <td>  <a href="{{route('delete_funcionario')}}?id={{$f->id}}"> Deletar </a> 
-              <input type="submit" value="Editar"> </td>
-            </form> 
-        <tr></tr> <tr></tr> <tr></tr> <tr></tr>
+                <form method="POST" action="{{route('update_funcionario')}}">
+                @csrf
+                <td style="border: none;"> <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> - </button> </td>
+                <input type="hidden" value="{{$f->id}}" name="id">
+                <td style="border: none;"> {{$f->id}} </td>
+                <td class="td_sem_borda"> <input type="text" class="funcionario_nome" value="{{$f->nome}}" name="nome">  <input type="text" class="funcionario_nome" value="{{$f->sobrenome}}" name="sobrenome"> </td>
+                <td class="td_sem_borda"> <input type="text" class="funcionario_outros" value="{{$f->cargo}}" name="cargo"> </td>
+                <td class="td_sem_borda"> <input type="text" class="funcionario_salario" value="{{$f->salario}}" name="salario"> </td>
+            </tr>
+            <tr class="to-hide" id="{{$th_completo}}">
+                <th style="border: none; background-color:white;"> </th>
+                <td style="border:none;"> </td>
+                <th> RG </th>
+                <th> CPF </th>
+                <th> <a href="{{route('delete_funcionario')}}?id={{$f->id}}" class="deletar"> Deletar </a> </th>
+            </tr>
+            <tr class="to-hide" id="{{$id_completo_2}}"> 
+                <td style="border:none;"> </td>
+                <td style="border:none;"> </td>
+                <td class="td_sem_borda"> <input size="10" id="rg" type="text" class="funcionario_outros" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
+                <td class="td_sem_borda"> <input id="cpf" type="text" class="funcionario_outros" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
+                <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
+                </form> 
+                <tr></tr><tr></tr><tr></tr><tr></tr>
         </tr>
     @endforeach
 </table>

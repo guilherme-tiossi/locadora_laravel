@@ -232,19 +232,96 @@
 	margin: 1rem;
 }
 
-.funcionario_nome{
-	width: 10vh;
+.funcionario td{
+	outline: none;
+	padding: 5px 10px;
+	border-radius: 1.3px;
+	margin: 5px 0 0 0;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+.tabela_funcionarios{
+	border-spacing: 0.3em;
+	border: transparent;
+}
+
+.tabela_funcionarios th{
+	border-radius: 8px;
+	background-color: #000;
+	font-size: 19px;
+	color: #fff;
+	padding: 5px 10px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	text-decoration: none;
+}
+
+.tabela_funcionarios button{
+	width: 5vh;
+	height: 5vh;
+	border-radius: 5px;
+	background-color: #000;
+	align-items: center;
+	font-size: 25px;
+	color: #fff;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+.tabela_funcionarios button:hover{
+	color: rgb(201, 201, 201);
+}
+
+.tabela_funcionarios input{
+		outline: none;
+		border: none;
+		background-color: transparent;
+		text-align: center;
 }
 
 .funcionario_nome{
-	width: 10vh;
+	width: 19.8vh;
+	font-size:1.1em;
+}
+
+th a{
+	color:white;
+	font-size:19px;
+	font-weight:bold;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.deletar:hover{
+	color: rgb(201, 201, 201);
 }
 
 .funcionario_outros{
-	width: 20vh;
+	width: 40.5vh;
+	font-size:1.2em;
+	text-align: center;
 }
 
 .funcionario_salario{
-	width: 9vh;
+	width: 14vh;
+	font-size:1.2em;
+	text-align: center;
 }
 
+.td_sem_borda{
+	border: none;
+	color: white;
+}
+
+.botao_confirmar{
+	color:white;
+	font-size:19px;
+	font-weight:bold;
+	cursor: pointer;
+}
+
+.botao_confirmar:hover{
+	color: rgb(201, 201, 201);
+}

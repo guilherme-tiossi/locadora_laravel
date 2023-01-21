@@ -42,22 +42,23 @@ function editarGeneros(clicked_id){
 
 function mostrarMaisFuncionarios(clicked_id){
     let id = clicked_id;
-            if (id.includes('_completo')){
-            let id_novo_2 = id + '_2';
-            let id_novo = id.replace('_completo', '');
-            console.log(id_novo_2);
+            if (id.includes('_completo')){ //se a div de exibição de mais conteúdo estiver sendo exibida
+            let id_novo_2 = id + '_2'; //varíavel representando o id da segunda div de exibição de mais conteúdo (X_completo_2)
+            let id_novo = id.replace('_completo', ''); //variável usada para recuperar o valor puro do id
+            let th_completo = id_novo + '_th_completo'; //variável usada para recuperar o id da table head completa
             document.getElementById(id_novo).className = 'funcionario';
             document.getElementById(id).className = 'to-hide';
-            document.getElementById("th_completo").className = 'to-hide';
+            document.getElementById(th_completo).className = 'to-hide';
             document.getElementById(id_novo_2).className = 'to-hide';
         }
-        else{
-            let id_novo = id + '_completo';
-            let id_novo_2 = id + '_completo_2';
+        else{ // caso o id for somente o número sem texto
+            let id_novo = id + '_completo'; // variável usada para recuperar o id do TR que representa os campos do formulário do funcionário
+            let id_novo_2 = id + '_completo_2'; //variável usada para recuperar o id do segundo TR dos campos de furmulário do funcionário
+            let th_completo = id + '_th_completo'; //variávvel usada para recuperar o id da table head completa
             document.getElementById(id_novo).className = 'funcionario';
             document.getElementById(id).className = 'to-hide';
-            document.getElementById("th_completo").className = '';
-            document.getElementById(id_novo_2).className = '';
+            document.getElementById(th_completo).className = 'funcionario';
+            document.getElementById(id_novo_2).className = 'funcionario';
         }
 }
 

@@ -33,8 +33,8 @@ class funcionariosController extends Controller
             'sobrenome' => $request->sobrenome,
             'cargo' => $request->cargo,
             'salario' => $request->salario,
-            'cpf' => $request->rg,
-            'rg' => $request->cpf,
+            'cpf' => $request->cpf,
+            'rg' => $request->rg,
         ]);
 
         return redirect('/empregados_adm');
