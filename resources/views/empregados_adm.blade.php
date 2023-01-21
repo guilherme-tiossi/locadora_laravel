@@ -1,7 +1,6 @@
 @include('includes.head')
 @include('includes.header_adm')
 <body>
-    <div>
     <div class="div-func-adm">
     <table border="solid 1px">
 
@@ -29,7 +28,7 @@
     @foreach ($funcionarios as $f)
         <p class="to-hide">{{$id_completo = $f->id . "_completo";}} </p>
         <tr class="funcionario" id="{{$f->id}}">
-        <td> <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver mais </button> </td>
+        <td> <button type="button" value="{{$f->id}}" onclick="mostrarMaisFuncionarios(this.value)"> + </button> </td>
         <td> {{$f->id}} </td>
         <td> {{$f->nome}} {{$f->sobrenome}} </td>
         <td> {{$f->cargo}} </td>
@@ -40,14 +39,14 @@
             <form method="POST" action="{{route('update_funcionario')}}">
             @csrf
 
-            <td> <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> Ver menos </button> </td>
+            <td> <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> -- </button> </td>
             <td> <input type="hidden" value="{{$f->id}}" name="id"> </td>
-            <td> <input type="text" value="{{$f->nome}}" name="nome">  
-                 <input type="text" value="{{$f->sobrenome}}" name="sobrenome"> </td>
-            <td> <input type="text" value="{{$f->cargo}}" name="cargo"> </td>
-            <td> <input type="text" value="{{$f->salario}}" name="salario"> </td>
-            <td> <input id="rg" type="text" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
-            <td> <input id="cpf" type="text" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
+            <td> <input type="text" class="funcionario_nome" value="{{$f->nome}}" name="nome">  
+                 <input type="text" class="funcionario_nome" value="{{$f->sobrenome}}" name="sobrenome"> </td>
+            <td> <input type="text" class="funcionario_outros" value="{{$f->cargo}}" name="cargo"> </td>
+            <td> <input type="text" class="funcionario_salario" value="{{$f->salario}}" name="salario"> </td>
+            <td> <input id="rg" type="text" class="funcionario_outros" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
+            <td> <input id="cpf" type="text" class="funcionario_outros" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
             <td>  <a href="{{route('delete_funcionario')}}?id={{$f->id}}"> Deletar </a> 
               <input type="submit" value="Enviar"> </td>
             </form> 
@@ -105,6 +104,5 @@
         
     </form>
     </div>
-</div>
 </body>
 </html>
