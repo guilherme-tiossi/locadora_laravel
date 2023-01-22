@@ -61,33 +61,45 @@
     </div>
 </div>
 
-<div class="listaGenerosAdm" id="listaGeneros"> 
+<h1> Gêneros </h1>
 
+<table border="solid" class="tabela_funcionarios" id="listaGeneros">    
+    <tr class="" id="th_incompleto">
+        <th  style="border: none; background-color:white;"> </th>
+        <th> Id </th>
+        <th> Gênero </th>
+    </tr>    
+    
     @foreach($generos as $g)
-    <p class="to-hide">{{$id_genero = $g->id_genero . "_genero";}} </p>
+        <p class="to-hide">{{$id_genero = $g->id_genero . "_genero";}} </p>
         <p class="to-hide">{{$id_genero_completo = $g->id_genero . "_genero_completo";}} </p>
+        <p class="to-hide"> {{$th_gen_del = $g->id_genero . "_genero_del";}} </p>
 
-        <div class="genero" id="{{$id_genero}}">
-            <p> {{$g->id_genero}} </p> 
-            <p> {{$g->nome_genero}} </p>
-            <button id="button" value="{{$id_genero}}" onclick="editarGeneros(this.value)"> Ver mais </button>
-            <br> <br>
-        </div>
+    <tr class="genero" id="{{$id_genero}}">
+        <td style="border: none;"> <button id="button" value="{{$id_genero}}" onclick="editarGeneros(this.value)"> + </button> </td>
+        <td style="border: none;"> {{$g->id_genero}} </td> 
+        <td style="border: none;"> {{$g->nome_genero}} </td>
+    </tr>
 
-    <div class="to-hide" id="{{$id_genero_completo}}">
-    <form method="POST" action="{{ route('update_genero') }}">
-    @csrf
-            <p> {{$g->id_genero}} </p>
-            <input type='hidden' value="{{$g->id_genero}}" name="id_genero"> <br>   
-            <input type='text' value="{{$g->nome_genero}}" name="nome_genero"> <br>   
-            <input type="submit" value="enviar"> <br>
-            <a href="{{ route('delete_genero') }}?id_genero={{$g->id_genero}}"> Deletar </a> <br>
-            <button id="button" type="button" value="{{$id_genero_completo}}" onclick="editarGeneros(this.value)"> Ver menos </button>
-            <br> <br>
-    </form>
-    </div>
+    <tr class="to-hide" id="{{$id_genero_completo}}">
+        <form method="POST" action="{{ route('update_genero') }}">
+        @csrf
+            <td style="border: none;"><button id="button" type="button" value="{{$id_genero_completo}}" onclick="editarGeneros(this.value)"> - </button> </td>
+            <td style="border: none;"> {{$g->id_genero}} </td> 
+            <input type='hidden' value="{{$g->id_genero}}" name="id_genero">   
+            <td class="td_sem_borda"> <input type='text' class="funcionario_nome" value="{{$g->nome_genero}}" name="nome_genero"> </td>   
+            <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
+        </form>
+    </tr>
+    <?php //dd($th_gen_del); ?>
+    <tr class='to-hide' id='{{$th_gen_del}}'>
+        <td style="border: none; background-color:white;"> </td>
+        <td style="border: none; background-color:white;"> </td>
+        <td style="border: none; background-color:white;"> </td>
+        <th> <a href="{{ route('delete_genero') }}?id_genero={{$g->id_genero}}"> Deletar </a> </th>
+    </tr>
     @endforeach
-</div>
+</table>
 
     <br> <br><br><br>
 
