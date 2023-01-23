@@ -252,6 +252,16 @@
 	text-align: center;
 }
 
+.filme td{
+	outline: none;
+	padding: 5px 10px;
+	border-radius: 1.3px;
+	margin: 5px 0 0 0;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
 .tabela{
 	border-spacing: 0.3em;
 	border: transparent;

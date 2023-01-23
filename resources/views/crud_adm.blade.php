@@ -101,19 +101,25 @@
     @endforeach
 </table>
 
-    <br> <br><br><br>
 
-<div class="listaFilmesAdm" id="listaFilmes"> 
+<h1> Filmes </h1>
 
+<table border="solid" class="tabela" id="listaFilmes">    
+    <tr class="" id="th_incompleto">
+        <th  style="border: none; background-color:white;"> </th>
+        <th> Id </th>
+        <th> Filme </th>
+    </tr>    
+    
     @foreach($filmes as $f) <!-- lendo todos os filmes do banco de dados (variável $filmes vindo do controller) !--> 
         <p class="to-hide">{{$id_filme_completo = $f->id_filme . "_completo";}} </p>
+        <p class="to-hide">{{$th_gen_edit = $f->id_filme . "_edit";}} </p>
 
-        <div class="filme" id="{{$f->id_filme}}">
-            <p> {{$f->id_filme}} </p> <!-- leitura do id de x filme !-->
-            <p> {{$f->titulo_filme}} </p> <!-- leitura do título de x filme !-->
-            <button id="button" value="{{$f->id_filme}}" onclick="exibirFilmesCompletos(this.value)"> Ver mais </button>
-            <br> <br>
-        </div>
+        <tr class="filme" id="{{$f->id_filme}}">
+            <td style="border: none;"><button id="button" type="button" value="{{$id_filme_completo}}" onclick="exibirFilmesCompletos(this.value)"> + </button> </td>
+            <td style="border: none;"> {{$f->id_filme}} </td>
+            <td class="td_nome"> {{$f->titulo_filme}} </td>
+        </tr>
 
     <div class="to-hide" id="{{$id_filme_completo}}">
     <form method="POST" action="{{ route('update_filme') }}">
@@ -136,6 +142,8 @@
     </form>
     </div>
     @endforeach
+</table>
+
 </div>
 </body>
 </html>
