@@ -222,6 +222,24 @@
 	margin-top: 5%;
 }
 
+.div-filmes_generos{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+}
+
+.table_crud_fg{
+	margin-left: 2em;
+	padding: 2em;
+	border: solid;
+	border: 1px solid #ccc;
+	border-radius: 1em;
+	overflow-y: scroll;
+	height: 20em;
+	margin-bottom: 10vh;
+}
+
 .div-func-adm{
 	padding: 20px;
 	margin-top: 5%;

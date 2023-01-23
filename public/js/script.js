@@ -12,16 +12,23 @@ function verificaLogin(){
 
 function exibirFilmesCompletos(clicked_id){
     let id = clicked_id;
-    console.log(id);
         if (id.includes('_completo')){
             let id_novo = id.replace('_completo', '');
+            let th_edit = id_novo + "_th_edit";
+            let td_edit = id_novo + "_td_edit";
             document.getElementById(id_novo).className = 'filme';
             document.getElementById(id).className = 'to-hide';
+            document.getElementById(th_edit).className = 'to-hide';
+            document.getElementById(td_edit).className = 'to-hide';
         }
         else{
             let id_novo = id + '_completo';
+            let th_edit = id + "_th_edit";
+            let td_edit = id + "_td_edit";
             document.getElementById(id_novo).className = 'filme';
             document.getElementById(id).className = 'to-hide';
+            document.getElementById(th_edit).className = 'filme';
+            document.getElementById(td_edit).className = 'filme';
         }
 }
 
