@@ -27,14 +27,14 @@ class tbfilmesController extends Controller
         ->select('tbalugueis.id_filme', 'tbalugueis.validade_aluguel')
         ->where('tbalugueis.id_user', '=', $user_id)->where('tbalugueis.devolvido', '=', '0')
         ->get();
-        $banana = array();
+        $filmes_alugados = array();
         foreach ($meus_filmes as $mf){
-            array_push($banana, $mf->id_filme); 
+            array_push($filmes_alugados, $mf->id_filme); 
         };
         $filmes = DB::table('tbfilmes')
         ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
         ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.valor_filme', 'tbgeneros.nome_genero')
-        ->where('tbfilmes.disponiveis_filme', '>', 0)->whereNotIn('tbfilmes.id_filme', $banana)
+        ->where('tbfilmes.disponiveis_filme', '>', 0)->whereNotIn('tbfilmes.id_filme', $filmes_alugados)
         ->get();
         return view('lista_filmes', compact('filmes'));
     }

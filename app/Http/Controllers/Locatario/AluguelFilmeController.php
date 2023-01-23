@@ -17,7 +17,7 @@ class AluguelFilmeController extends Controller
     //relação de aluguel temporário referente a que usuário está com que filme ATUALMENTE
         $filme_alugado = new AluguelFilmeModel;
         $user_id = Auth::user()->id;
-        $disponiveis_filme = DB::table('tbfilmes')->where('id_filme', '=', '1')->value('disponiveis_filme');
+        $disponiveis_filme = DB::table('tbfilmes')->where('id_filme', '=', $request->filme)->value('disponiveis_filme');
         --$disponiveis_filme;
         $filme_alugado->id_filme = $request->filme;
         $filme_alugado->id_user = $user_id;
