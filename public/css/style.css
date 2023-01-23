@@ -201,6 +201,19 @@
 	display: inline;
 }
 
+.ul-menu a:hover {
+	color: rgb(201, 201, 201);
+}
+
+.ul-menu-adm a:hover {
+	color: rgb(201, 201, 201);
+}
+
+.ul-menu-adm{
+	display: inline;
+	margin-left: 80vh;
+}
+
 .lista-menu{
 	list-style: none;
 	display: inline;
