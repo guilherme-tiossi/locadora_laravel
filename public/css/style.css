@@ -242,12 +242,22 @@
 	text-align: center;
 }
 
-.tabela_funcionarios{
+.genero td{
+	outline: none;
+	padding: 5px 10px;
+	border-radius: 1.3px;
+	margin: 5px 0 0 0;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+.tabela{
 	border-spacing: 0.3em;
 	border: transparent;
 }
 
-.tabela_funcionarios th{
+.tabela th{
 	border-radius: 8px;
 	background-color: #000;
 	font-size: 19px;
@@ -258,7 +268,7 @@
 	text-decoration: none;
 }
 
-.tabela_funcionarios button{
+.tabela button{
 	width: 5vh;
 	height: 5vh;
 	border-radius: 5px;
@@ -270,18 +280,18 @@
 	text-decoration: none;
 }
 
-.tabela_funcionarios button:hover{
+.tabela button:hover{
 	color: rgb(201, 201, 201);
 }
 
-.tabela_funcionarios input{
+.tabela input{
 		outline: none;
 		border: none;
 		background-color: transparent;
 		text-align: center;
 }
 
-.funcionario_nome{
+.td_nome{
 	width: 19.8vh;
 	font-size:1.1em;
 }
@@ -298,13 +308,13 @@ th a{
 	color: rgb(201, 201, 201);
 }
 
-.funcionario_outros{
+.td_outros{
 	width: 40.5vh;
 	font-size:1.2em;
 	text-align: center;
 }
 
-.funcionario_salario{
+.td_salario{
 	width: 14vh;
 	font-size:1.2em;
 	text-align: center;

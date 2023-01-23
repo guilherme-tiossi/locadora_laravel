@@ -63,7 +63,7 @@
 
 <h1> Gêneros </h1>
 
-<table border="solid" class="tabela_funcionarios" id="listaGeneros">    
+<table border="solid" class="tabela" id="listaGeneros">    
     <tr class="" id="th_incompleto">
         <th  style="border: none; background-color:white;"> </th>
         <th> Id </th>
@@ -78,7 +78,7 @@
     <tr class="genero" id="{{$id_genero}}">
         <td style="border: none;"> <button id="button" value="{{$id_genero}}" onclick="editarGeneros(this.value)"> + </button> </td>
         <td style="border: none;"> {{$g->id_genero}} </td> 
-        <td style="border: none;"> {{$g->nome_genero}} </td>
+        <td class="td_nome"> {{$g->nome_genero}} </td>
     </tr>
 
     <tr class="to-hide" id="{{$id_genero_completo}}">
@@ -87,17 +87,17 @@
             <td style="border: none;"><button id="button" type="button" value="{{$id_genero_completo}}" onclick="editarGeneros(this.value)"> - </button> </td>
             <td style="border: none;"> {{$g->id_genero}} </td> 
             <input type='hidden' value="{{$g->id_genero}}" name="id_genero">   
-            <td class="td_sem_borda"> <input type='text' class="funcionario_nome" value="{{$g->nome_genero}}" name="nome_genero"> </td>   
+            <td class="td_sem_borda"> <input type='text' class="td_nome" value="{{$g->nome_genero}}" name="nome_genero"> </td>   
             <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
         </form>
     </tr>
-    <?php //dd($th_gen_del); ?>
     <tr class='to-hide' id='{{$th_gen_del}}'>
         <td style="border: none; background-color:white;"> </td>
         <td style="border: none; background-color:white;"> </td>
         <td style="border: none; background-color:white;"> </td>
         <th> <a href="{{ route('delete_genero') }}?id_genero={{$g->id_genero}}"> Deletar </a> </th>
     </tr>
+    <tr></tr><tr></tr><tr></tr><tr></tr>
     @endforeach
 </table>
 
