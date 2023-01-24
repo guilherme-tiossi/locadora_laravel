@@ -4,7 +4,7 @@
         <div style="display: flex;">
             <h2 class="titulo-menu"> Barkaflix</h2>
             <form class="form-pesquisa">
-                <input type="text" name="pesquisa" class="input-pesquisa">
+                <input type="text" name="search" id="search" class="input-pesquisa">
                 <button type="submit" name="pesquisar" class="btn-pesquisa">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -29,3 +29,19 @@
     </nav>
 </header>
 </section>
+<script type="text/javascript">
+$('#search').on('keyup',function(){
+$value=$(this).val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('search')}}',
+data:{'search':$value},
+success:function(data){
+$('tbody').html(data);
+}
+});
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>

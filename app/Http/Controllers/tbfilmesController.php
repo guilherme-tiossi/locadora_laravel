@@ -16,7 +16,6 @@ class tbfilmesController extends Controller
      */
     public function index()
     {
-
     }
     
     public function listarfilmes()
@@ -39,17 +38,27 @@ class tbfilmesController extends Controller
         return view('lista_filmes', compact('filmes'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function search(Request $request)
     {
-        //
-    }
-
+        if($request->ajax()){
+            $output="";
+            $filmes_pesquisa = DB::table('tbfilmes')
+            ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
+            ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.valor_filme', 'tbgeneros.nome_genero')
+            ->where('tbfilmes.disponiveis_filme', '>', 0)->whereNotIn('tbfilmes.id_filme', $filmes_alugados)
+            ->where('tbfilmes.titulo_filme', 'LIKE', '%'.$request->search.'%')
+            ->get();
+                        
+            if($filmes_pesquisa){
+                foreach ($filmes_pesquisa as $key => $filme) {
+                    $output.='<tr>'.
+                    '<td>'.$filme->id_filme.'</td>'.
+                    '<td>'.$filmes_pesquisa->titulo_filme.'</td>';
+                    }
+                return Response($output);
+            }
+        }
+    } 
     /**
      * Store a newly created resource in storage.
      *
