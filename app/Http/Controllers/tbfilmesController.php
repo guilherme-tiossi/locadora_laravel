@@ -56,6 +56,7 @@ class tbfilmesController extends Controller
             ->where('tbfilmes.disponiveis_filme', '>', 0)->whereNotIn('tbfilmes.id_filme', $filmes_alugados)
             ->where('tbfilmes.titulo_filme', 'LIKE', '%'.$request->get('value').'%')
             ->get();
+            //ADICIONAR DATA AO ARRAY $FILMES_PESQUISA CORREÇÃO BUG
             return json_encode($filmes_pesquisa);
         }
     /**
