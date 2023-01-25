@@ -51,7 +51,8 @@ Route::get('/teste', function() {
     Route::get('delete_genero', 'App\Http\Controllers\tbgenerosController@delete')->name('delete_genero');
     Route::get('delete_filme', 'App\Http\Controllers\tbfilmesController@delete')->name('delete_filme');
     Route::post('create_funcionario', 'App\Http\Controllers\funcionariosController@store')->name('create_funcionario');
-    Route::get('/search', 'App\Http\Controllers\tbfilmesController@search')->name('search');
+    Route::post('search', 'App\Http\Controllers\tbfilmesController@search')->name('search');
+    Route::get('/fodase', 'App\Http\Controllers\tbfilmesController@search')->name('fodase');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
