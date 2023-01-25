@@ -35,7 +35,8 @@ class tbfilmesController extends Controller
         ->select('tbfilmes.titulo_filme', 'tbfilmes.id_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.valor_filme', 'tbgeneros.nome_genero')
         ->where('tbfilmes.disponiveis_filme', '>', 0)->whereNotIn('tbfilmes.id_filme', $filmes_alugados)
         ->get();
-        return view('lista_filmes', compact('filmes'));
+        $data = date("y-m-d", strtotime("+7 days"));
+        return view('lista_filmes', compact('filmes', 'data'));
     }
 
     public function search(Request $request)
