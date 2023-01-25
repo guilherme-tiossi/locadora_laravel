@@ -1,18 +1,23 @@
 @include('includes.head')
 @include('includes.header_adm')
+
 <form method="GET" action="{{ route('pegar_ano') }}">
     <input type="text" name="ano"> 
 </form>
 <h2> Ano: {{$ano}} </h1>
-<p> Janeiro: {{$jan}} </p>
-<p> Fevereiro: {{$fev}} </p>
-<p> Março: {{$mar}} </p>
-<p> Abril: {{$abr}} </p>
-<p> Maio: {{$mai}} </p>
-<p> Junho: {{$jun}} </p>
-<p> Julho: {{$jul}} </p>
-<p> Agosto: {{$ago}} </p>
-<p> Setembro: {{$set}} </p>
-<p> Outubro: {{$out}} </p>
-<p> Novembro: {{$nov}} </p>
-<p> Dezembro: {{$dez}} </p>
+<p id='jan' class='to-hide'> {{$jan}} </p>
+<p id='fev' class='to-hide'> {{$fev}} </p>
+<p id='mar' class='to-hide'> {{$mar}} </p>
+<p id='abr' class='to-hide'> {{$abr}} </p>
+<p id='mai' class='to-hide'> {{$mai}} </p>
+<p id='jun' class='to-hide'> {{$jun}} </p>
+<p id='jul' class='to-hide'> {{$jul}} </p>
+<p id='ago' class='to-hide'> {{$ago}} </p>
+<p id='set' class='to-hide'> {{$set}} </p>
+<p id='out' class='to-hide'> {{$out}} </p>
+<p id='nov' class='to-hide'> {{$nov}} </p>
+<p id='dez' class='to-hide'> {{$dez}} </p>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+<h3> Lucros totais: {{$lucros_totais}} </h3>
+
+@include('includes.footer_adm');

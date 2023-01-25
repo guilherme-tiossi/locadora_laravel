@@ -11,6 +11,7 @@
         <script src="{{url('https://kit.fontawesome.com/051b5b0d64.js')}}" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <!-- Scripts -->
         @vite(['resources/js/app.js'])
     </head>
