@@ -20,4 +20,7 @@
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 <h3> Lucros totais: {{$lucros_totais}} </h3>
 
+@foreach ($dados_financeiros as $df)
+<p> {{$df->periodo}}:  {{$df->receita_total * 1000}} </p>
+@endforeach
 @include('includes.footer_adm');
