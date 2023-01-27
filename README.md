@@ -11,9 +11,29 @@ Esse é um projeto de uma locadora criado para que eu possa colocar em prática 
 - **Laravel**
 - **Laravel Breeze**
 
-## Como Executar
+## Instalação
 
-Lorem Ipsum Dor Els Solem.
+Clone o repositório
+
+    git clone git@github.com:guilherme-tiossi/locadora_laravel.git
+
+Entre na pasta do repositório
+
+    cd locadora_laravel
+
+Instalação das dependências a partir do composer
+
+    composer install
+
+Inicie as migrations do banco de dados (não esquecer de criar o banco de dados de acordo com o arquivo .env)
+
+    php artisan migrate
+
+Inicialize o servidor de desenvolvimento
+
+    php artisan serve
+
+É possível accessar o servidor pela porta http://localhost:8000
 
 ## Layouts
 
