@@ -55,125 +55,48 @@ class financeiroController extends Controller
             ]);
         }
 
-        $jan = 0; $jan = 0; $jan = 0; $fev = 0; $mar = 0; $abr = 0; $mai = 0; $jun = 0; $jul = 0; $ago = 0; $set = 0; $out = 0; $nov = 0; $dez = 0; 
+        $meses = [$jan = 0, $fev = 0, $mar = 0, $abr = 0, $mai = 0, $jun = 0, $jul = 0, $ago = 0, $set = 0, $out = 0, $nov = 0, $dez = 0]; 
+        $meses_str = ['jan','fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+        $meses_int = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        $i = -1;
+        $lucros_totais = 0;
         $ano = $request->ano;
         if ($ano == null){
-            $lucros_totais = 0;
-            $ano = "Todos";
-            foreach ($alugueis_totais as $lt){
-                switch ($lt->validade_aluguel){
-                   case(str_contains($lt->validade_aluguel, '-01-')):
-                       $jan = $jan + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                   break;
-                   case(str_contains($lt->validade_aluguel, '-02-')):
-                       $fev = $fev + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                     break;
-                   case(str_contains($lt->validade_aluguel, '-03-')):
-                       $mar = $mar + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-04-')):
-                       $abr = $abr + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                   break;
-                   case(str_contains($lt->validade_aluguel, '-05-')):
-                       $mai = $mai + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-06-')):
-                       $jun = $jun + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-07-')):
-                       $jul = $jul + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-08-')):
-                       $ago = $ago + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-09-')):
-                       $set = $set + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-10-')):
-                       $out = $out + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-11-')):
-                       $nov = $nov + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
-                   case(str_contains($lt->validade_aluguel, '-12-')):
-                       $dez = $dez + $lt->valor_filme;
-                       $lucros_totais = $lucros_totais + $lt->valor_filme;
-                    break;
+        while ($i < 11){
+            $i++;
+        foreach($alugueis_totais as $lt){
+                if(str_contains($lt->validade_aluguel, '-0' . $meses_int[$i] . '-')){
+                    $meses[$i] = $meses[$i] + $lt->valor_filme;
+                    $lucros_totais = $lucros_totais + $lt->valor_filme;
                 }
-        }
-        }
-        else{   
-            $lucros_totais = 0;
-        foreach ($alugueis_totais as $lt){
-            switch ($lt->validade_aluguel){
-               case(str_contains($lt->validade_aluguel, $ano. '-01')):
-                   $jan = $jan + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-02')):
-                   $fev = $fev + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-03')):
-                   $mar = $mar + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-04')):
-                   $abr = $abr + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-05')):
-                   $mai = $mai + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-06')):
-                   $jun = $jun + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-07')):
-                   $jul = $jul + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-08')):
-                   $ago = $ago + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-09')):
-                   $set = $set + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-10')):
-                   $out = $out + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-11')):
-                   $nov = $nov + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-               case(str_contains($lt->validade_aluguel, $ano. '-12')):
-                   $dez = $dez + $lt->valor_filme;
-                   $lucros_totais = $lucros_totais + $lt->valor_filme;
-                break;
-            }
-        }
-        }
+            
+                if(str_contains($lt->validade_aluguel, '-' . $meses_int[$i] . '-')){
+                    $meses[$i] = $meses[$i] + $lt->valor_filme;
+                    $lucros_totais = $lucros_totais + $lt->valor_filme;
+                }
+        }}}
+        
+        else{
+            while ($i < 11){
+                $i++;
+            foreach($alugueis_totais as $lt){
+                    if(str_contains($lt->validade_aluguel, $ano . '-0' . $meses_int[$i] . '-')){
+                        $meses[$i] = $meses[$i] + $lt->valor_filme;
+                        $lucros_totais = $lucros_totais + $lt->valor_filme;
+                    }
+                
+                    if(str_contains($lt->validade_aluguel, $ano . '-' . $meses_int[$i] . '-')){
+                        $meses[$i] = $meses[$i] + $lt->valor_filme;
+                        $lucros_totais = $lucros_totais + $lt->valor_filme;
+                    } 
+        }}}
+
         $dados_financeiros = DB::table('financeiro')
         ->select()
         ->get();
         foreach ($dados_financeiros as $df){
             $df->periodo = mb_substr($df->periodo, 0, 7);
         }
-        return view('dashboard_adm', compact('alugueis_totais', 'dados_financeiros', 'lucros_totais', 'ano', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'));
+        return view('dashboard_adm', compact('alugueis_totais', 'meses', 'dados_financeiros', 'lucros_totais', 'ano'));
     }
 }
