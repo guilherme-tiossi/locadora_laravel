@@ -18,10 +18,20 @@
 <p id='nov' class='to-hide'> {{$meses[10]}} </p>
 <p id='dez' class='to-hide'> {{$meses[11]}} </p>
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-<h3> Lucros total do período: {{$lucros_totais}} </h3>
+<h3> Lucros totais do período: {{$lucros_totais}} </h3>
 
+<div class="div-center"> <div class="table_crud_fg">
+<table class="tabela">
+<tr> 
+    <th> Período </th>
+    <th> Lucros </th>
+</tr>
+<tr> <td> <b> {{$periodo}} </b> </td>
+<td> <b> {{$receita_atual}} </b> </td> </tr>
 @foreach ($dados_financeiros as $df)
-<p> {{$df->periodo}}:  {{$df->receita_total * 1000}} </p>
+<tr> <td> {{$df->periodo}} </td>
+<td> {{$df->receita_total * 1000}} </td> </tr>
 @endforeach
-<b> {{$periodo}}:  {{$receita_atual}} </b>
+</table>
+</div> </div>
 @include('includes.footer_adm')
