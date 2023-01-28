@@ -23,4 +23,5 @@
 @foreach ($dados_financeiros as $df)
 <p> {{$df->periodo}}:  {{$df->receita_total * 1000}} </p>
 @endforeach
-@include('includes.footer_adm');
+<b> {{$periodo}}:  {{$receita_atual}} </b>
+@include('includes.footer_adm')
