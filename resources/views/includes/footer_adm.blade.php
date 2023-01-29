@@ -16,6 +16,18 @@ new Chart("myChart", {
   },
   options: {
     legend: {display: false},
+    scales: {
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+                                steps: 10,
+                                stepValue: 5,
+                                max:6000,
+                                min: 500
+                            }
+                        }]
+                },
   }
 });
 </script>
