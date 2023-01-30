@@ -2,7 +2,7 @@
 
 ## Definição do Projeto
 
-Esse é um projeto de uma locadora criado para que eu possa colocar em prática meus estudos do framework Laravel e também de JavaScript. O projeto em si é um sistema de uma locadora, que contém dois tipos de usuários diferentes: o admin, que quando logado possui acesso a uma área de telas que o permite visualizar, criar, alterar, e deletar filmes, gêneros e funcionários da fictícia locadora, bem como visualizar estatísticas sobre o também fictício negócio, como um gráfico mês a mês dos lucros dos alugueis de filmes por ano, ao lado de dados mais detalhados sobre seus lucros, descontando impostos e o salário dos funcionários em determinado mês. No segundo tipo de usuário, o locatário, são dois os mecanismos principais: o de locação e o de devolução de filmes (incluindo um sistema de devolução automática de filmes quando a data de validade do aluguel vencer), ambos autoexplicativos. Na área do locatário também se tem um sistema dinâmico de pesquisa de filmes feito com Javascript, que elimina todos os filmes que não contêm em seu título os caracteres digitados pelo usuário na barras e pesquisa. 
+Esse é um projeto de uma locadora criado para que eu possa colocar em prática meus estudos do framework Laravel e também de JavaScript. O projeto em si é um sistema de uma locadora web que contém dois tipos de usuários diferentes: o admin, que quando logado possui acesso a uma área de telas que o permite visualizar, criar, alterar, e deletar filmes, gêneros e funcionários da fictícia locadora, bem como visualizar estatísticas sobre o também fictício negócio, como um gráfico mês a mês dos lucros dos alugueis de filmes por ano, ao lado de dados mais detalhados sobre seus lucros, descontando impostos e o salário dos funcionários em determinado mês. No segundo tipo de usuário, o locatário, são dois os mecanismos principais: o de locação e o de devolução de filmes (incluindo um sistema de devolução automática de filmes quando a data de validade do aluguel vencer), ambos autoexplicativos. Na área do locatário também se tem um sistema dinâmico de pesquisa de filmes feito com Javascript, que elimina todos os filmes que não contêm em seu título os caracteres digitados pelo usuário na barras e pesquisa. 
 ### Tecnologias Utilizadas
 
 - **Html**
@@ -25,9 +25,13 @@ Instalação das dependências a partir do composer
 
     composer install
 
-Inicie as migrations do banco de dados (não esquecer de criar o banco de dados de acordo com o arquivo .env)
+Inicie as migrations do banco de dados
 
     php artisan migrate
+
+Inicie o seeding do banco de dados
+
+    php artisan db:seed
 
 Inicialize o servidor de desenvolvimento
 
@@ -37,7 +41,36 @@ Inicialize o servidor de desenvolvimento
 
 ## Layouts
 
-Lorem Ipsum Dor Els Solem.
+## Geral
+
+![layout-de-login](https://images2.imgbox.com/22/6c/tws6TTEm_o.png)
+Layout da página de login
+
+![layout-de-cadastro](https://images2.imgbox.com/9d/45/JmhYy8EX_o.png)
+Layout da página de cadastro
+
+## Páginas do admin
+
+![layout-de-adm_estatisticas_1](https://images2.imgbox.com/96/69/0TdCWArc_o.png)
+Imagem 1 do layout da página de estatísticas
+
+![layout-de-adm_estatisticas_2](https://images2.imgbox.com/b6/24/3lp6HRJx_o.png)
+Imagem 2 do layout da página de estatísticas
+
+![layout-de-adm_funcionarios_1](https://images2.imgbox.com/8e/9c/MGSISYtX_o.png)
+Imagem 1 do layout da página de funcionários
+
+![layout-de-adm_funcionarios_2](https://images2.imgbox.com/44/4e/XINUYMqp_o.png)
+Imagem 2 do layout da página de funcionários
+
+![layout-de-crud_filmes_generos_1](https://images2.imgbox.com/18/c7/7wz4d1YA_o.png)
+Imagem 1 do layout da página de CRUD de filmes e gêneros
+
+![layout-de-crud_filmes_generos_2](https://images2.imgbox.com/64/b1/EjFXxRe1_o.png)
+Imagem 1 do layout da página de CRUD de filmes e gêneros
+
+![layout-de-crud_filmes_generos_3](https://images2.imgbox.com/62/ad/myVrGOtF_o.png)
+Imagem 1 do layout da página de CRUD de filmes e gêneros
 
 ## Diagrama de Dados
 
