@@ -1,10 +1,13 @@
 @include('includes.head')
 @include('includes.header_adm')
 
+<div class='estatisticas'> <div class='div-center'> <div class="ano_dashboard-adm">
+<h2 > Ano: </h2>
 <form method="GET" action="{{ route('pegar_ano') }}">
-    <input type="text" name="ano"> 
-</form>
-<h2> Ano: {{$ano}} </h1>
+    <input class="input-login" placeholder="Todos" value="{{$ano}}" type="text" name="ano"> 
+</form> 
+</div> </div>
+<div class='div-center'>
 <p id='jan' class='to-hide'> {{$meses[0]}} </p>
 <p id='fev' class='to-hide'> {{$meses[1]}} </p>
 <p id='mar' class='to-hide'> {{$meses[2]}} </p>
@@ -17,8 +20,9 @@
 <p id='out' class='to-hide'> {{$meses[9]}} </p>
 <p id='nov' class='to-hide'> {{$meses[10]}} </p>
 <p id='dez' class='to-hide'> {{$meses[11]}} </p>
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-<h3> Receita total do período: {{$lucros_totais}} </h3>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas> </div>
+
+<div class="div-center"> <h3> Receita total do período: {{$lucros_totais}} </h3> </div> </div>
 
 <div class="div-center"> <div class="table_crud_fg">
 <table class="tabela">

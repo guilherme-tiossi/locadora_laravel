@@ -43,7 +43,7 @@
         </div>
 
         <div>
-        <select id="genero_filme" name="genero_filme">
+        <select id="genero_filme" name="genero_filme" class="input-crud-gen">
             @foreach($generos as $g)
                 <option value='{{$g->id_genero}}'>{{$g->nome_genero}}</option>
             @endforeach
@@ -146,7 +146,7 @@
      <tr class="to-hide" id="{{$td_fil_edit}}">
          <td style="border: none; background-color:white;"> </td>
          <td style="border: none; background-color:white;"> </td>
-             <td class="td_sem_borda"> <select class="td_salario" id="genero_filme" name="genero_filme"> 
+             <td class="td_sem_borda"> <select class="input-login" id="genero_filme" name="genero_filme"> 
          @foreach($generos as $g)
                  <option value='{{$g->id_genero}}' <?php if($g->id_genero == $f->genero_filme){echo 'selected="{{$g->id_genero}}"';};?> selected="{{$f->genero_filme}}"> {{$g->nome_genero}}</option>
          @endforeach

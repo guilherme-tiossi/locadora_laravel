@@ -1,9 +1,11 @@
 @include('includes.head')
 @include('includes.header_adm')
 <body>
+    <div class="div-center">
     <div class="div-func-adm">
+    <div class="div-center"> <h1> Funcionários </h1> </div>
     <table border="solid" class="tabela">
-    <h1> Funcionários </h1>
+    <br>
     <tr class="" id="th_incompleto">
         <th  style="border: none; background-color:white;"> </th>
         <th> Id </th>
@@ -50,6 +52,7 @@
                 </form> 
                 <tr></tr><tr></tr><tr></tr><tr></tr>
         </tr>
+</div>
     @endforeach
 </table>
     </div> </div>
@@ -57,6 +60,7 @@
     <div class="div-center">
                     <!-- form funcionarios -->
     <div class="div-crud-adm-func">
+        
     <form method="POST" class="form-cadastro" action="{{ route('create_funcionario') }}">
         @csrf
 

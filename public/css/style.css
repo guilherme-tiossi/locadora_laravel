@@ -62,6 +62,20 @@
 }
 
 .btn-cadastro{
+	border: none;
+	border-radius: 5px;
+	background-color: #000;
+	font-size: 19px;
+	color: #fff;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	width: 43%;
+}
+
+.link-cadastro{
+	text-decoration: none;
 	border-radius: 5px;
 	background-color: #000;
 	font-size: 19px;
@@ -71,11 +85,6 @@
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	width: 100%;
-}
-
-.link-cadastro{
-	color: #0000ee;
-	text-decoration: none;
 }
 
 /*===================================================   LOGIN   ========================================================*/
@@ -104,7 +113,17 @@
 	margin: 10px 0 0 0;
 	background-color: transparent;
 	border: 1px solid #ccc;
+}
 
+.input-crud-gen{
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	font-size: 17px;
+	margin: 10px 0 0 0;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	width: 100%;
 }
 
 .btn-login{
@@ -251,16 +270,21 @@
 	overflow-y: scroll;
 	height: 20em;
 	margin-bottom: 10vh;
+	padding-top: 3vh;
 }
 
 .div-func-adm{
 	padding: 20px;
-	margin-top: 5%;
+	margin-top: 2%;
 }
 
 .div-crud-adm-func{
 	padding: 20px;
 	margin: 1rem;
+}
+
+.div-crud-adm-func input{
+	margin-left: 3vh;
 }
 
 .funcionario td{
@@ -375,4 +399,37 @@ th a{
 
 .botao_confirmar:hover{
 	color: rgb(201, 201, 201);
+}
+
+
+.ano_dashboard-adm{
+	width: fit-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 1vh;
+}
+
+.ano_dashboard-adm input{
+	width: 15vh;
+	height: 6vh;
+	border-radius: 1vh;
+	margin-left: 2vh;
+	text-align: center;
+	margin-bottom: 1vh;
+	margin-top: 1vh;
+	font-weight: bold;
+	font-size: 2.85vh;
+}
+
+.estatisticas{
+	margin-left: 28.3%;
+	width:100vh;
+	border: #ccc solid 1px;
+	border-radius: 1vh;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	margin-top: 4vh;
+	margin-bottom: 4vh;
 }
