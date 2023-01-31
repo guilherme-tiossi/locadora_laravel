@@ -203,6 +203,44 @@ class DatabaseSeeder extends Seeder
             $tbfinanceiro->save();
         }
 
+    //seed funcionarios
+            $data = array(
+            [
+                'nome' => 'Carlos',
+                'sobrenome' => 'Alberto',
+                'cargo' => 'Desenvolvedor Full-Stack',
+                'salario' => 3500,
+                'cpf' => '123.456.789-10',
+                'rg' => '12 345 678-9',
+            ],
+            [
+                'nome' => 'Julia',
+                'sobrenome' => 'Pereira',
+                'cargo' => 'Recursos Humanos',
+                'salario' => 2500,
+                'cpf' => '234.567.891-01',
+                'rg' => '23 456 789-1',
+            ],
+            [
+                'nome' => 'Ricardo',
+                'sobrenome' => 'Rotther',
+                'cargo' => 'Financeiro',
+                'salario' => 3000,
+                'cpf' => '345.678.910-11',
+                'rg' => '34 567 891-0',
+            ],
+        );
+        foreach ($data as $d){
+            $tbfuncionarios = new funcionariosModel();
+            $tbfuncionarios->nome =$d['nome'];
+            $tbfuncionarios->sobrenome =$d['sobrenome'];
+            $tbfuncionarios->cargo =$d['cargo'];
+            $tbfuncionarios->salario =$d['salario'];
+            $tbfuncionarios->cpf =$d['cpf'];
+            $tbfuncionarios->rg = $d['rg'];
+            $tbfuncionarios->save();
+        }
+
     //seed alugueis
     $data = array(
         ['id_user' => 1,'id_filme' => 1,'validade_aluguel' => '2022-01-31','valor_filme' => 15.00,'devolvido' => 1,],['id_user' => 2,'id_filme' => 2,'validade_aluguel' => '2022-02-28','valor_filme' => 89.00,'devolvido' => 1,],            ['id_user' => 1,'id_filme' => 1,'validade_aluguel' => '2022-03-31','valor_filme' => 99.00,'devolvido' => 1,],['id_user' => 2,'id_filme' => 2,'validade_aluguel' => '2022-04-30','valor_filme' => 89.00,'devolvido' => 1,],            ['id_user' => 1,'id_filme' => 1,'validade_aluguel' => '2022-05-31','valor_filme' => 99.00,'devolvido' => 1,],['id_user' => 2,'id_filme' => 2,'validade_aluguel' => '2022-06-30','valor_filme' => 89.00,'devolvido' => 1,],            ['id_user' => 1,'id_filme' => 1,'validade_aluguel' => '2022-07-31','valor_filme' => 99.00,'devolvido' => 1,],['id_user' => 2,'id_filme' => 2,'validade_aluguel' => '2022-08-31','valor_filme' => 89.00,'devolvido' => 1,],            ['id_user' => 1,'id_filme' => 1,'validade_aluguel' => '2022-09-30','valor_filme' => 99.00,'devolvido' => 1,],['id_user' => 2,'id_filme' => 2,'validade_aluguel' => '2022-10-31','valor_filme' => 89.00,'devolvido' => 1,],            ['id_user' => 1,'id_filme' => 1,'validade_aluguel' => '2022-11-30','valor_filme' => 99.00,'devolvido' => 1,],['id_user' => 2,'id_filme' => 2,'validade_aluguel' => '2022-12-31','valor_filme' => 89.00,'devolvido' => 1,],            
