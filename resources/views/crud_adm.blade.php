@@ -5,19 +5,18 @@
 
                     <!-- form genero -->
     <div class="div-login">
-    <form method="POST" action="{{ route('create_genero') }}">
+    <form method="POST" onsubmit="return verificaGenero()" action="{{ route('create_genero') }}">
         @csrf
 
         <h1> Cadastrar gênero: </h1>
+        <p class="aviso" id="avisoGenero"> </p>
         <div>
-            <x-text-input id="genero" placeholder="Gênero" class="input-login" type="text" name="genero" :value="old('genero')" required autofocus />
+            <input id="genero" placeholder="Gênero" class="input-login" type="text" name="genero" :value="old('genero')" />
         </div>
 
         <div>
             <div class="center">
-            <x-primary-button class="btn-login">
-                {{ __('Cadastrar') }}
-            </x-primary-button>
+            <input type="submit" value="Cadastrar" class="btn-login">
         </div>
         </div>
     </form>
@@ -146,9 +145,9 @@
      <tr class="to-hide" id="{{$td_fil_edit}}">
          <td style="border: none; background-color:white;"> </td>
          <td style="border: none; background-color:white;"> </td>
-             <td class="td_sem_borda"> <select class="input-login" id="genero_filme" name="genero_filme"> 
+             <td class="td_sem_borda"> <select class="input-login" id="genero_filme" name="genero_filme">
          @foreach($generos as $g)
-                 <option value='{{$g->id_genero}}' <?php if($g->id_genero == $f->genero_filme){echo 'selected="{{$g->id_genero}}"';};?> selected="{{$f->genero_filme}}"> {{$g->nome_genero}}</option>
+                 <option value='{{$g->id_genero}}' <?php if($f->genero_filme == $g->id_genero){ echo "selected";}?>> {{$g->nome_genero}}</option>
          @endforeach
              </select> </td>
              <td class="td_sem_borda"> <textarea class="td_outros" name="sinopse_filme"> {{$f->sinopse_filme}} </textarea>  </td>

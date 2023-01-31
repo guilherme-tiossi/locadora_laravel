@@ -11,7 +11,7 @@ class financeiroController extends Controller
 {
     public function index(Request $request){
              $data_atual = date('Y-m-d');
-             //    $data_atual = str_replace('01-27', '02-28', $data_atual);
+            //    $data_atual = str_replace('01-31', '02-28', $data_atual);
              $data = new DateTime($data_atual);
              $data->modify('last day of this month');
              $data = $data->format('Y-m-d');
@@ -29,7 +29,7 @@ class financeiroController extends Controller
              ->get();
          $receita_filmes = 0;
          foreach ($alugueis_mensais as $am){
-             $receita_filmes = $receita_filmes + $am->valor_filme / 1000;
+             $receita_filmes = $receita_filmes + $am->valor_filme;
          }
          $impostos = $receita_filmes%15;
          $salarios = DB::table('funcionarios')
@@ -41,7 +41,6 @@ class financeiroController extends Controller
          }
          $despesas = $despesas + $impostos;
          $receita_total = $receita_filmes - $despesas;
-         
          $inserir_dados_financeiros = financeiroModel::create([
              'periodo' => $data,
              'receita_filmes' => $receita_filmes,

@@ -195,3 +195,15 @@ function mascara_cpf(i){
     
     return validar;
  }
+
+ function verificaGenero(){
+    verifica = true;
+    const genero = document.getElementById('genero').value;
+    
+    if (genero.length < 3){
+        verifica = false;
+        document.getElementById('avisoGenero').innerHTML = "O gênero deve ter no mínimo três caracteres";
+    }
+    
+    return verifica;
+ }
