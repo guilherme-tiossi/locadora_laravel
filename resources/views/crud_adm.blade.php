@@ -9,9 +9,9 @@
         @csrf
 
         <h1> Cadastrar gênero: </h1>
-        <p class="aviso" id="avisoGenero"> </p>
         <div>
             <input id="genero" placeholder="Gênero" class="input-login" type="text" name="genero" :value="old('genero')" />
+            <p class="aviso" id="avisoGenero"> </p>
         </div>
 
         <div>
@@ -24,21 +24,25 @@
     
                     <!-- form filme -->
     <div class="div-crud-adm">
-    <form method="POST" action="{{ route('create_filme') }}">
+    <form method="POST" onsubmit="return verificaFilme()" action="{{ route('create_filme') }}">
         @csrf
 
         <h1> Cadastrar filme: </h1>
         <div>
-            <x-text-input id="titulo_filme" placeholder="Título" class="input-login" type="text" name="titulo_filme" :value="old('titulo_filme')" required autofocus />
+            <x-text-input id="titulo_filme" placeholder="Título" class="input-login" type="text" name="titulo_filme" :value="old('titulo_filme')"/>
+            <p class="aviso" id="avisoTitulo"> </p>
         </div>
         <div>
-            <x-text-input id="sinopse_filme" placeholder="Sinopse" class="input-login" type="text" name="sinopse_filme" :value="old('sinopse_filme')" required autofocus />
+            <x-text-input id="sinopse_filme" placeholder="Sinopse" class="input-login" type="text" name="sinopse_filme" :value="old('sinopse_filme')"/>
+            <p class="aviso" id="avisoSinopse"> </p>
         </div>
         <div>
-            <x-text-input id="valor_filme" placeholder="Valor" class="input-login" type="text" name="valor_filme" :value="old('valor_filme')" required autofocus />
+            <x-text-input id="valor_filme" placeholder="Valor" class="input-login" type="text" name="valor_filme" :value="old('valor_filme')" />
+            <p class="aviso" id="avisoValor"> </p>
         </div>
         <div>
-            <x-text-input id="disponiveis_filme" placeholder="Disponíveis" class="input-login" type="text" name="disponiveis_filme" :value="old('disponiveis_filme')" required autofocus />
+            <x-text-input id="disponiveis_filme" placeholder="Disponíveis" class="input-login" type="text" name="disponiveis_filme" :value="old('disponiveis_filme')"/>
+            <p class="aviso" id="avisoDisponiveis"> </p>
         </div>
 
         <div>
@@ -80,14 +84,15 @@
         <td style="border: none;"> {{$g->id_genero}} </td> 
         <td class="td_nome"> {{$g->nome_genero}} </td>
     </tr>
+    <p class="aviso" id="tableAvisoGenero"> </p>
 
     <tr class="to-hide" id="{{$id_genero_completo}}">
-        <form method="POST" action="{{ route('update_genero') }}">
+        <form method="POST" onsubmit="return verificaFormGenero()" action="{{ route('update_genero') }}">
         @csrf
-                        <input type='hidden' value="{{$g->id_genero}}" name="id_genero">   
+            <input type='hidden' value="{{$g->id_genero}}" name="id_genero">   
             <td style="border: none;"><button id="button" type="button" value="{{$id_genero_completo}}" onclick="editarGeneros(this.value)"> - </button> </td>
             <td style="border: none;"> {{$g->id_genero}} </td> 
-            <td class="td_sem_borda"> <input type='text' class="td_nome" value="{{$g->nome_genero}}" name="nome_genero"> </td>   
+            <td class="td_sem_borda"> <input type='text' id="tableGenero" class="td_nome" value="{{$g->nome_genero}}" name="nome_genero"> </td>   
             <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
         </form>
     </tr>
@@ -103,6 +108,10 @@
 </div>
 
 <div class="table_crud_fg">
+    <p class="aviso" id="table_avisoTitulo"> </p>
+    <p class="aviso" id="table_avisoSinopse"> </p>
+    <p class="aviso" id="table_avisoValor"> </p>
+    <p class="aviso" id="table_avisoDisponiveis"> </p>
 <table border="solid" class="tabela" id="listaFilmes">    
     <tr class="" id="th_incompleto">
         <th  style="border: none; background-color:white;"> </th>
@@ -126,14 +135,14 @@
         </tr>
 
     <tr class="to-hide" id="{{$id_filme_completo}}">
-     <form method="POST" action="{{ route('update_filme') }}">
+     <form method="POST" onsubmit="return verificaFormFilme()" action="{{ route('update_filme') }}">
      @csrf
                          <input type='hidden' value="{{$f->id_filme}}" name="id_filme">  
              <td style="border: none;"> <button id="button" type="button" value="{{$id_filme_completo}}" onclick="exibirFilmesCompletos(this.value)"> - </button> </td>
              <td style="border: none;"> {{$f->id_filme}} </td>
-             <td class="td_sem_borda"> <input type='text' class="td_nome" value="{{$f->titulo_filme}}" name="titulo_filme">  </td>
-             <td class="td_sem_borda"> <input class="td_salario" type='text' value="{{$f->disponiveis_filme}}" name="disponiveis_filme">  </td>
-             <td class="td_sem_borda"> <input class="td_salario" type='text' value="{{$f->valor_filme}}" name="valor_filme">  </td>
+             <td class="td_sem_borda"> <input type='text' class="td_nome" id="table_titulo_filme" value="{{$f->titulo_filme}}" name="titulo_filme">  </td>
+             <td class="td_sem_borda"> <input class="td_salario" type='text' id="table_disponiveis_filme" value="{{$f->disponiveis_filme}}" name="disponiveis_filme">  </td>
+             <td class="td_sem_borda"> <input class="td_salario" type='text' id="table_valor_filme" value="{{$f->valor_filme}}" name="valor_filme">  </td>
      </tr>
      <tr class="to-hide" id="{{$th_fil_edit}}">
          <th  style="border: none; background-color:white;"> </th>
@@ -150,7 +159,7 @@
                  <option value='{{$g->id_genero}}' <?php if($f->genero_filme == $g->id_genero){ echo "selected";}?>> {{$g->nome_genero}}</option>
          @endforeach
              </select> </td>
-             <td class="td_sem_borda"> <textarea class="td_outros" name="sinopse_filme"> {{$f->sinopse_filme}} </textarea>  </td>
+             <td class="td_sem_borda"> <textarea class="td_outros" id="table_sinopse_filme" name="sinopse_filme"> {{$f->sinopse_filme}} </textarea>  </td>
              <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
      </form>
     <tr></tr><tr></tr><tr></tr><tr></tr>

@@ -159,12 +159,12 @@ function mascara_cpf(i){
     console.log(nome + " + " + sobrenome + " + " + cargo + " + " + salario + " + " + " + " + rg + " + " + cpf);
     
     if (nome.length < 3){
-        document.getElementById('avisoNome').innerHTML = 'O nome deve ter três ou mais caracteres';
+        document.getElementById('avisoNome').innerHTML = 'O nome deve ter três <br> ou mais caracteres';
         validar = false;
     }
 
     if (sobrenome.length < 3){
-        document.getElementById('avisoSobrenome').innerHTML = 'O sobrenome deve ter três ou mais caracteres';
+        document.getElementById('avisoSobrenome').innerHTML = 'O sobrenome deve ter <br> três ou mais caracteres';
         validar = false;
     }
 
@@ -202,8 +202,80 @@ function mascara_cpf(i){
     
     if (genero.length < 3){
         verifica = false;
-        document.getElementById('avisoGenero').innerHTML = "O gênero deve ter no mínimo três caracteres";
+        document.getElementById('avisoGenero').innerHTML = "O gênero deve ter no mínimo três <br> caracteres";
     }
     
     return verifica;
+ }
+
+ function verificaFormGenero(){
+    verifica = true;
+    const genero = document.getElementById('tableGenero').value;
+    
+    if (genero.length < 3){
+        verifica = false;
+        document.getElementById('tableAvisoGenero').innerHTML = "O gênero deve ter no mínimo três caracteres";
+    }
+    
+    return verifica;
+ }
+
+ function verificaFilme(){
+    let validar = true
+    const titulo = document.getElementById('titulo_filme').value;
+    const sinopse = document.getElementById('sinopse_filme').value;
+    const valor = document.getElementById('valor_filme').value;
+    const disponiveis = document.getElementById('disponiveis_filme').value;
+    
+    if (titulo.length < 3){
+        document.getElementById('avisoTitulo').innerHTML = 'O título deve ter três ou mais <br> caracteres';
+        validar = false;
+    }
+
+    if (sinopse.length < 10){
+        document.getElementById('avisoSinopse').innerHTML = 'A sinopse deve ter dez ou mais <br> caracteres';
+        validar = false;
+    }
+    
+    if (/^\d+$/.test(valor) == false){
+        document.getElementById('avisoValor').innerHTML = 'O valor deve ser representado <br> em formato numérico';
+        validar = false;
+    }
+
+    if (/^\d+$/.test(disponiveis) == false){
+        document.getElementById('avisoDisponiveis').innerHTML = 'A quantidade de filmes deve ser <br> representada em formato numérico';
+        validar = false;
+    }
+    
+    return validar;
+ }
+
+ function verificaFormFilme(){
+    let validar = true
+    const titulo = document.getElementById('table_titulo_filme').value;
+    const sinopse = document.getElementById('table_sinopse_filme').value;
+    const valor = document.getElementById('table_valor_filme').value;
+    const disponiveis = document.getElementById('table_disponiveis_filme').value;
+    
+    if (titulo.length < 3){
+        document.getElementById('table_avisoTitulo').innerHTML = 'O título deve ter três ou mais caracteres';
+        validar = false;
+    }
+
+    if (sinopse.length < 10){
+        document.getElementById('table_avisoSinopse').innerHTML = 'A sinopse deve ter dez ou mais caracteres';
+        validar = false;
+    }
+    
+    if (/^\d+$/.test(valor) == false){
+        document.getElementById('table_avisoValor').innerHTML = 'O valor deve ser representado em formato numérico';
+        validar = false;
+    }
+
+    if (/^\d+$/.test(disponiveis) == false){
+        document.getElementById('table_avisoDisponiveis').innerHTML = 'A quantidade de filmes deve ser representada em formato numérico';
+        validar = false;
+    }
+    
+    return validar;
  }
