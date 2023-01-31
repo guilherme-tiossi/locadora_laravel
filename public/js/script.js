@@ -99,3 +99,99 @@ function mascara_cpf(i){
     if (v.length == 2 || v.length == 6) i.value += ".";
     if (v.length == 10) i.value += "-";
  }
+ 
+ function tableVerificaFormEmpregados(){
+    let validar = true
+    const nome = document.getElementById('th_nome_funcionario').value;
+    const sobrenome = document.getElementById('th_sobrenome_funcionario').value;
+    const cargo = document.getElementById('th_cargo_funcionario').value;
+    const salario = document.getElementById('th_salario_funcionario').value;
+    const rg = document.getElementById('th_rg_funcionario').value;
+    const cpf = document.getElementById('th_cpf_funcionario').value;
+    console.log(nome + " + " + sobrenome + " + " + cargo + " + " + salario + " + " + " + " + rg + " + " + cpf);
+    
+    if (nome.length < 3){
+        document.getElementById('tableAvisoNome').innerHTML = 'O nome deve ter três ou mais caracteres';
+        validar = false;
+    }
+
+    if (sobrenome.length < 3){
+        document.getElementById('tableAvisoSobrenome').innerHTML = 'O sobrenome deve ter três ou mais caracteres';
+        validar = false;
+    }
+
+    if (cargo.length < 4){
+        document.getElementById('tableAvisoCargo').innerHTML = 'O cargo deve ter quatro ou mais caracteres';
+        validar = false;
+    }
+    
+    if (/^\d+$/.test(salario) == false){
+        document.getElementById('tableAvisoSalario').innerHTML = 'O salário deve ser representado em formato numérico';
+        validar = false;
+    }
+
+    if (salario < 1302){
+        document.getElementById('tableAvisoSalario').innerHTML = 'O salário deve ser maior ou igual a 1302';
+        validar = false;
+    }
+
+    if (rg.length < 12){
+        document.getElementById('tableAvisoRG').innerHTML = 'RG inválido.';
+        validar = false;
+    }
+
+    if (cpf.length < 14){
+        document.getElementById('tableAvisoCPF').innerHTML = 'CPF inválido.';
+        validar = false;
+    }
+    
+    return validar;
+ }
+
+ function verificaFormEmpregados(){
+    let validar = true
+    const nome = document.getElementById('nome_funcionario').value;
+    const sobrenome = document.getElementById('sobrenome_funcionario').value;
+    const cargo = document.getElementById('cargo_funcionario').value;
+    const salario = document.getElementById('salario_funcionario').value;
+    const rg = document.getElementById('rg_funcionario').value;
+    const cpf = document.getElementById('cpf_funcionario').value;
+    console.log(nome + " + " + sobrenome + " + " + cargo + " + " + salario + " + " + " + " + rg + " + " + cpf);
+    
+    if (nome.length < 3){
+        document.getElementById('avisoNome').innerHTML = 'O nome deve ter três ou mais caracteres';
+        validar = false;
+    }
+
+    if (sobrenome.length < 3){
+        document.getElementById('avisoSobrenome').innerHTML = 'O sobrenome deve ter três ou mais caracteres';
+        validar = false;
+    }
+
+    if (cargo.length < 4){
+        document.getElementById('avisoCargo').innerHTML = 'O cargo deve ter quatro ou mais caracteres';
+        validar = false;
+    }
+    
+    if (/^\d+$/.test(salario) == false){
+        document.getElementById('avisoSalario').innerHTML = 'O salário deve ser representado em formato numérico';
+        validar = false;
+    }
+
+    if (salario < 1302){
+        document.getElementById('avisoSalario').innerHTML = 'O salário deve ser maior ou igual a 1302';
+        validar = false;
+    }
+
+    if (rg.length < 12){
+        document.getElementById('avisoRG').innerHTML = 'RG inválido.';
+        validar = false;
+    }
+
+    if (cpf.length < 14){
+        document.getElementById('avisoCPF').innerHTML = 'CPF inválido.';
+        validar = false;
+    }
+    
+    return validar;
+ }

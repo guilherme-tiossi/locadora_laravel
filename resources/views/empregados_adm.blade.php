@@ -27,14 +27,22 @@
         </tr>
 
         <tr class="to-hide" id="{{$id_completo}}">
-                <form method="POST" action="{{route('update_funcionario')}}">
+                <form method="POST" onsubmit="return tableVerificaFormEmpregados()" action="{{route('update_funcionario')}}">
                 @csrf
+                <p class="aviso" id="tableAvisoNome"> </p> 
+                <p class="aviso" id="tableAvisoSobrenome"> </p>
+                <p class="aviso" id="tableAvisoCargo"> </p>
+                <p class="aviso" id="tableAvisoSalario"> </p>
+                <p class="aviso" id="tableAvisoRG"> </p>
+                <p class="aviso" id="tableAvisoCPF"> </p>
+
                 <td style="border: none;"> <button type="button" value="{{$id_completo}}" onclick="mostrarMaisFuncionarios(this.value)"> - </button> </td>
                 <input type="hidden" value="{{$f->id}}" name="id">
                 <td style="border: none;"> {{$f->id}} </td>
-                <td class="td_sem_borda"> <input type="text" class="td_nome" value="{{$f->nome}}" name="nome">  <input type="text" class="td_nome" value="{{$f->sobrenome}}" name="sobrenome"> </td>
-                <td class="td_sem_borda"> <input type="text" class="td_outros" value="{{$f->cargo}}" name="cargo"> </td>
-                <td class="td_sem_borda"> <input type="text" class="td_salario" value="{{$f->salario}}" name="salario"> </td>
+                <td class="td_sem_borda"> <input type="text" id="th_nome_funcionario" class="td_nome" value="{{$f->nome}}" name="nome"> 
+                <input type="text" id="th_sobrenome_funcionario" class="td_nome" value="{{$f->sobrenome}}" name="sobrenome"> </td> 
+                <td class="td_sem_borda"> <input type="text" id="th_cargo_funcionario" class="td_outros" value="{{$f->cargo}}" name="cargo"> </td>
+                <td class="td_sem_borda"> <input type="text" id="th_salario_funcionario" class="td_salario" value="{{round($f->salario)}}" name="salario"> </td>
             </tr>
             <tr class="to-hide" id="{{$th_completo}}">
                 <th style="border: none; background-color:white;"> </th>
@@ -46,8 +54,8 @@
             <tr class="to-hide" id="{{$id_completo_2}}"> 
                 <td style="border:none;"> </td>
                 <td style="border:none;"> </td>
-                <td class="td_sem_borda"> <input size="10" id="rg" type="text" class="td_outros" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
-                <td class="td_sem_borda"> <input id="cpf" type="text" class="td_outros" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
+                <td class="td_sem_borda"> <input id="th_rg_funcionario" type="text" class="td_outros" value="{{$f->rg}}" oninput="mascara_rg(this)" name="rg" placeholder="RG" :value="old('rg_funcionario')"> </td>
+                <td class="td_sem_borda"> <input id="th_cpf_funcionario" type="text" class="td_outros" value="{{$f->cpf}}" oninput="mascara_cpf(this)" name="cpf" placeholder="CPF" :value="old('cpf_funcionario')"> </td>
                 <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
                 </form> 
                 <tr></tr><tr></tr><tr></tr><tr></tr>
@@ -60,47 +68,46 @@
     <div class="div-center">
                     <!-- form funcionarios -->
     <div class="div-crud-adm-func">
-        
-    <form method="POST" class="form-cadastro" action="{{ route('create_funcionario') }}">
+    <form method="POST" class="form-cadastro" onsubmit="return verificaFormEmpregados()" action="{{ route('create_funcionario') }}">
         @csrf
 
         <div style="display: flex;">
         <!-- Nome -->
         <div>
-            <x-text-input id="nome_funcionario" type="text" name="nome_funcionario" placeholder="Nome" class="input-cadastro-esp" :value="old('nome_funcionario')" />
+            <input id="nome_funcionario" type="text" name="nome_funcionario" placeholder="Nome" class="input-cadastro-esp" :value="old('nome_funcionario')" />
+            <p class="aviso" id="avisoNome"> </p>
         </div>
-
         <!-- Sobrenome -->
         <div>
-            <x-text-input id="sobrenome_funcionario" type="text" name="sobrenome_funcionario" placeholder="Sobrenome" class="input-cadastro-esp" :value="old('sobrenome_funcionario')" />
+            <input id="sobrenome_funcionario" type="text" name="sobrenome_funcionario" placeholder="Sobrenome" class="input-cadastro-esp" :value="old('sobrenome_funcionario')" />
+            <p class="aviso" id="avisoSobrenome"> </p>
         </div> </div>
-        
         <!-- Cargo -->
         <div>
-            <x-text-input placeholder="Cargo do funcionário" class="input-cadastro" id="cargo_funcionario" type="text" name="cargo_funcionario" :value="old('cargo_funcionario')"/>
+            <input id="cargo_funcionario" placeholder="Cargo do funcionário" class="input-cadastro" type="text" name="cargo_funcionario" :value="old('cargo_funcionario')"/>
         </div>
-
+        <p class="aviso" id="avisoCargo"> </p>
         <!-- Salário -->
         <div>
-            <x-text-input placeholder="Salário" class="input-cadastro" id="salario_funcionario" type="text" pattern="^\d*(\.\d{0,3})?$" name="salario_funcionario" :value="old('salario_funcionario')"/>
+            <input id="salario_funcionario" placeholder="Salário" class="input-cadastro" type="text" name="salario_funcionario" :value="old('salario_funcionario')"/>
         </div>
-
+        <p class="aviso" id="avisoSalario"> </p>
         <div style="display: flex;">
         <!-- RG -->
         <div>
-            <x-text-input id="rg" type="text" oninput="mascara_rg(this)" name="rg_funcionario" placeholder="RG" class="input-cadastro-esp" :value="old('rg_funcionario')" />
+            <input id="rg_funcionario" type="text" oninput="mascara_rg(this)" name="rg_funcionario" placeholder="RG" class="input-cadastro-esp" :value="old('rg_funcionario')" />
+        <p class="aviso" id="avisoRG"> </p>
         </div>
 
         <!-- CPF -->
         <div>
-            <x-text-input id="cpf" type="text" oninput="mascara_cpf(this)" name="cpf_funcionario" placeholder="CPF" class="input-cadastro-esp" :value="old('cpf_funcionario')" />
+            <input id="cpf_funcionario" type="text" oninput="mascara_cpf(this)" name="cpf_funcionario" placeholder="CPF" class="input-cadastro-esp" :value="old('cpf_funcionario')" />
+        <p class="aviso" id="avisoCPF"> </p>
         </div> </div>
 
         <div>
-            <div class="center">
-            <x-primary-button class="btn-login">
-                {{ __('Cadastrar Funcionário') }}
-            </x-primary-button>
+            <div class="div-center">
+            <input type="submit" class="btn-login" value="Cadastrar Funcionário">
         </div>
         </div>
         
