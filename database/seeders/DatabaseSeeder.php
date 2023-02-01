@@ -122,7 +122,7 @@ class DatabaseSeeder extends Seeder
             $tbfilmes->sinopse_filme =$d['sinopse_filme'];
             $tbfilmes->valor_filme =$d['valor_filme'];
             $tbfilmes->disponiveis_filme =$d['disponiveis_filme'];
-            $tbfilmes->foto_filme =$d['foto_filme'];
+            $tbfilmes->link_filme =$d['link_filme'];
             $tbfilmes->genero_filme = $d['genero_filme'];
             $tbfilmes->save();
         }
