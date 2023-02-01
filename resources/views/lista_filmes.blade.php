@@ -2,19 +2,18 @@
 @include('includes.header_locatario')
 <p id="date" class="to-hide"> {{$data}} </p>
 
-    <div class="div-center">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900" id="dynamic_row">
-                @foreach($filmes as $f)
-                    <h1> {{$f->titulo_filme}} </h1>
-                    <p> {{$f->nome_genero}} </p>
-                    <p> {{$f->sinopse_filme}} </h1>
-                    <br> <a href='alugar?filme={{$f->id_filme}}&data={{$data = date("y/m/d", strtotime("+7 days"))}}&valor={{$f->valor_filme}}'> Alugar </a>
-                    <br> <br>
-                @endforeach
-                </div>
-            </div>
-        </div>
+<div id="dynamic_row">
+@foreach($filmes as $f)
+<div class="div-center">
+    <div class="div-filmes">
+    <h1> {{$f->titulo_filme}} </h1>
+    <hr>
+    <p class="genero"> {{$f->nome_genero}} </p>
+    <p class="sinopse"> {{$f->sinopse_filme}} </h1> <br>
+    <a class="link" href='alugar?filme={{$f->id_filme}}&data={{$data = date("y/m/d", strtotime("+7 days"))}}&valor={{$f->valor_filme}}'> Alugar </a>
     </div>
+</div>
+@endforeach
+</div>
+
 @include('includes.footer_locatario');

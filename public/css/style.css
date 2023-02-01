@@ -247,6 +247,68 @@
 	font-size: 16px;
 }
 
+/*============================================= LOCATÁRIO ===================================================*/
+
+.div-filmes{
+	width: 50%;
+	margin: 10px 0 0 0;
+	border-radius: 1.3px;
+	background-color: transparent;
+	border: 1px solid #ccc;
+;
+}
+
+.div-filmes hr{
+	color: rgb(209, 209, 209);
+	border-top: 1px solid;
+}
+
+.div-filmes h1{
+	text-align: center;
+	margin: 2vh;			
+}
+
+.div-filmes .genero{
+	margin: 2vh;
+	border: 2px solid  rgb(202, 202, 202);
+	background-color: rgb(243, 243, 243);
+	color: rgb(95, 95, 95);
+	width: min-content;
+	padding: 5px;
+	border-radius: 1vh;
+	font-weight: bold;
+}
+
+.div-filmes .sinopse{
+	margin: 2vh;
+	color: grey;
+	font-size: 3vh;
+}
+
+.div-filmes .link{
+	background-color: transparent;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	font-weight: bold;
+	float: right;
+	border: 2px solid rgb(129, 129, 129);
+	color: rgb(108, 108, 108);
+	width: min-content;
+	padding: 5px;
+	border-radius: 1vh;
+	text-decoration: none;
+}
+
+.div-filmes .link:hover{
+	border: 2px solid rgb(95, 95, 95);
+	background-color: rgb(241, 241, 241);
+	color: rgb(78, 78, 78);
+	width: min-content;
+	padding: 5px;
+	border-radius: 1vh;
+	cursor: pointer;
+}
+
 /*==============================================   ADM   ====================================================*/
 .div-crud-adm{
 	padding: 20px;
@@ -258,7 +320,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-
 }
 
 .table_crud_fg{
@@ -433,3 +494,4 @@ th a{
 	margin-top: 4vh;
 	margin-bottom: 4vh;
 }
+

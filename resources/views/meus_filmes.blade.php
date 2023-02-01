@@ -1,14 +1,14 @@
 @include('includes.head')
 @include('includes.header_locatario')
-<div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                @foreach($alugueis as $f)
-                    <h1> {{$f->titulo_filme}} </h1>
-                    <br> <a href='devolver?filme={{$f->id_filme}}'> Devolver  </a>
-                    <br> <br>
-                @endforeach
-                </div>
-            </div>
+
+@foreach($alugueis as $f)
+    <div class="div-center">
+        <div class="div-filmes">
+        <h1> {{$f->titulo_filme}} </h1>
+        <hr>
+        <p class="genero"> {{$f->nome_genero}} </p>
+        <p class="sinopse"> {{$f->sinopse_filme}} </h1> <br>
+        <a class="link" <a href='devolver?filme={{$f->id_filme}}'> Devolver </a>
         </div>
+    </div>
+@endforeach
