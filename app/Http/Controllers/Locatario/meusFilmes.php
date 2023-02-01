@@ -37,7 +37,7 @@ class meusFilmes extends Controller
         $alugueis = DB::table('tbalugueis')
         ->join('tbfilmes', 'tbalugueis.id_filme', '=', 'tbfilmes.id_filme')
         ->join('tbgeneros', 'tbfilmes.genero_filme', '=', 'tbgeneros.id_genero')
-        ->select('tbalugueis.id_filme', 'tbfilmes.titulo_filme', 'tbfilmes.sinopse_filme', 'tbgeneros.nome_genero', 'tbalugueis.validade_aluguel')
+        ->select('tbalugueis.id_filme', 'tbfilmes.titulo_filme', 'tbfilmes.sinopse_filme', 'tbfilmes.link_filme', 'tbgeneros.nome_genero', 'tbalugueis.validade_aluguel')
         ->where('tbalugueis.id_user', '=', $user_id)->where('tbalugueis.devolvido', '=', '0')
         ->get();
         return view('meus_filmes', compact('alugueis'));

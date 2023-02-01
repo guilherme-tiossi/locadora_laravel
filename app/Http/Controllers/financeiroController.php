@@ -96,12 +96,12 @@ class financeiroController extends Controller
 
     $alugueis_totais = DB::table('tbalugueis')
     ->select('tbalugueis.validade_aluguel', 'tbalugueis.valor_filme')
-    ->where('tbalugueis.validade_aluguel', '=', $data)
+    ->where('tbalugueis.validade_aluguel', 'LIKE', '%'. $periodo. '%')
     ->get();
     $receita_atual = 0;
     foreach($alugueis_totais as $ra){
         $receita_atual = $receita_atual + $ra->valor_filme;
-    } 
+    }
     return view('dashboard_adm', compact('alugueis_totais', 'meses', 'receita_atual', 'periodo', 'dados_financeiros', 'lucros_totais', 'ano'));
     }
 }

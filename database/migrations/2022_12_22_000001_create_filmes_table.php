@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('sinopse_filme')->length(500);
             $table->float('valor_filme')->length(4,2);
             $table->integer('disponiveis_filme')->length(3);
-            $table->string('foto_filme')->length(100)->default('padrao.png');
+            $table->string('link_filme');
             $table->unsignedBigInteger('genero_filme');
             $table->foreign('genero_filme')
             ->references('id_genero')->on('tbgeneros')->onDelete('cascade');

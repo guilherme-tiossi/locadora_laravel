@@ -46,6 +46,11 @@
         </div>
 
         <div>
+            <x-text-input id="link_filme" placeholder="Link" class="input-login" type="text" name="link_filme" :value="old('link_filme')"/>
+            <p class="aviso" id="avisoLink"> </p>
+        </div>
+
+        <div>
         <select id="genero_filme" name="genero_filme" class="input-crud-gen">
             @foreach($generos as $g)
                 <option value='{{$g->id_genero}}'>{{$g->nome_genero}}</option>
@@ -112,6 +117,7 @@
     <p class="aviso" id="table_avisoSinopse"> </p>
     <p class="aviso" id="table_avisoValor"> </p>
     <p class="aviso" id="table_avisoDisponiveis"> </p>
+    <p class="aviso" id="table_avisoLink"> </p>
 <table border="solid" class="tabela" id="listaFilmes">    
     <tr class="" id="th_incompleto">
         <th  style="border: none; background-color:white;"> </th>
@@ -125,6 +131,7 @@
             <p class="to-hide">{{$id_filme_completo = $f->id_filme . "_completo";}} </p>
             <p class="to-hide">{{$td_fil_edit = $f->id_filme . "_td_edit";}} </p>
             <p class="to-hide">{{$th_fil_edit = $f->id_filme . "_th_edit";}} </p>
+            <p class="to-hide">{{$td2_fil_edit = $f->id_filme . "_td2_edit";}} </p>
 
         <tr class="filme" id="{{$f->id_filme}}">
             <td style="border: none;"><button id="button" type="button" value="{{$f->id_filme}}" onclick="exibirFilmesCompletos(this.value)"> + </button> </td>
@@ -149,7 +156,7 @@
          <th  style="border: none; background-color:white;"> </th>
          <th> Gênero </th>
          <th> Sinopse </th>
-         <th> <a href="{{ route('delete_filme') }}?id_filme={{$f->id_filme}}"> Deletar </a> </th>
+         <th> Link </th>
      </tr>
      <tr class="to-hide" id="{{$td_fil_edit}}">
          <td style="border: none; background-color:white;"> </td>
@@ -160,8 +167,16 @@
          @endforeach
              </select> </td>
              <td class="td_sem_borda"> <textarea class="td_outros" id="table_sinopse_filme" name="sinopse_filme"> {{$f->sinopse_filme}} </textarea>  </td>
-             <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
-     </form>
+             <td class="td_sem_borda"> <input class="td_outros" id="table_link_filme" name="link_filme" value="{{$f->link_filme}}"> </td>
+
+     <tr class="to-hide" id="{{$td2_fil_edit}}">
+        <td style="border: none; background-color:white;"> </td>
+        <td style="border: none; background-color:white;"> </td>
+        <td style="border: none; background-color:white;"> </td>
+        <th> <a href="{{ route('delete_filme') }}?id_filme={{$f->id_filme}}"> Deletar </a> </th>
+        <th class="td_sem_borda"> <input type="submit" class="botao_confirmar" value="Confirmar" </th>
+    </tr>
+    </form>
     <tr></tr><tr></tr><tr></tr><tr></tr>
     @endforeach
 </table>

@@ -75,6 +75,7 @@ class tbfilmesController extends Controller
             'valor_filme' => $request->valor_filme,
             'disponiveis_filme' => $request->disponiveis_filme,
             'genero_filme' => $request->genero_filme,
+            'link_filme' => $request->link_filme,
         ]);
 
         return redirect('/crud_adm');
@@ -93,6 +94,7 @@ class tbfilmesController extends Controller
          'tbfilmes.sinopse_filme' => $request->sinopse_filme,
          'tbfilmes.valor_filme' => $request->valor_filme,
          'tbfilmes.genero_filme' => $request->genero_filme,
+         'tbfilmes.link_filme' => $request->link_filme,
          'tbfilmes.disponiveis_filme' => $request->disponiveis_filme,
          'tbfilmes.valor_filme' => $request->valor_filme,
         ]);

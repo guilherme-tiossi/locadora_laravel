@@ -16,19 +16,23 @@ function exibirFilmesCompletos(clicked_id){
             let id_novo = id.replace('_completo', '');
             let th_edit = id_novo + "_th_edit";
             let td_edit = id_novo + "_td_edit";
+            let td2_edit = id_novo + "_td2_edit";
             document.getElementById(id_novo).className = 'filme';
             document.getElementById(id).className = 'to-hide';
             document.getElementById(th_edit).className = 'to-hide';
             document.getElementById(td_edit).className = 'to-hide';
+            document.getElementById(td2_edit).className = 'to-hide';
         }
         else{
             let id_novo = id + '_completo';
             let th_edit = id + "_th_edit";
             let td_edit = id + "_td_edit";
+            let td2_edit = id + "_td2_edit";
             document.getElementById(id_novo).className = 'filme';
             document.getElementById(id).className = 'to-hide';
             document.getElementById(th_edit).className = 'filme';
             document.getElementById(td_edit).className = 'filme';
+            document.getElementById(td2_edit).className = 'filme';
         }
 }
 
@@ -228,6 +232,7 @@ function mascara_cpf(i){
     const sinopse = document.getElementById('sinopse_filme').value;
     const valor = document.getElementById('valor_filme').value;
     const disponiveis = document.getElementById('disponiveis_filme').value;
+    const link = document.getElementById('link_filme').value;
     
     if (titulo.length < 3){
         document.getElementById('avisoTitulo').innerHTML = 'O título deve ter três ou mais <br> caracteres';
@@ -249,6 +254,11 @@ function mascara_cpf(i){
         validar = false;
     }
     
+    if (link.indexOf('https://www.youtube.com') == -1 | link.length < 10){
+        document.getElementById('avisoLink').innerHTML = 'O link deve ser um <br> link do Youtube';
+        validar = false;
+    }
+
     return validar;
  }
 
@@ -258,7 +268,8 @@ function mascara_cpf(i){
     const sinopse = document.getElementById('table_sinopse_filme').value;
     const valor = document.getElementById('table_valor_filme').value;
     const disponiveis = document.getElementById('table_disponiveis_filme').value;
-    
+    const link = document.getElementById('table_link_filme').value;
+    console.log( titulo + sinopse + valor + disponiveis + link);
     if (titulo.length < 3){
         document.getElementById('table_avisoTitulo').innerHTML = 'O título deve ter três ou mais caracteres';
         validar = false;
@@ -279,6 +290,11 @@ function mascara_cpf(i){
         validar = false;
     }
     
+    if (link.indexOf('https://www.youtube.com') == -1 | link.length < 10){
+        document.getElementById('table_avisoLink').innerHTML = 'O link deve ser um link do Youtube';
+        validar = false;
+    }
+
     return validar;
  }
 
@@ -288,7 +304,7 @@ function verificaCadastro(){
     const email = document.getElementById('email').value;
     const senha1 = document.getElementById('senha1').value;
     const senha2 = document.getElementById('senha2').value;
-
+    console.log(senha1 + "  " + senha2)
     if (nome.length < 3){
         document.getElementById('aviso-nome-cadastro').innerHTML = "O nome deve ter três ou mais <br> caracteres";
         validar = false;
@@ -299,8 +315,8 @@ function verificaCadastro(){
         validar = false;
     }   
 
-    if (senha1 < 5 | senha1.indexOf('!', '@', '#', '$', '%', '&', '*', '(', ')') == -1){
-        document.getElementById('aviso-senha1-cadastro').innerHTML = "A senha deve conter cinco ou mais  caracteres e conter pelo <br> menos um caractere especial";
+    if (senha1.length < 6){
+        document.getElementById('aviso-senha1-cadastro').innerHTML = "A senha deve conter cinco ou mais caracteres";
         validar = false;
     }
 

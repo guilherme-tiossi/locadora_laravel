@@ -24,7 +24,7 @@ new Chart("myChart", {
                                 steps: 10,
                                 stepValue: 5,
                                 max:6000,
-                                min: 500
+                                min: 10
                             }
                         }]
                 },
