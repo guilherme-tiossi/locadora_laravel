@@ -100,6 +100,8 @@ function mascara_cpf(i){
     if (v.length == 10) i.value += "-";
  }
  
+
+
  function tableVerificaFormEmpregados(){
     let validar = true
     const nome = document.getElementById('th_nome_funcionario').value;
@@ -251,7 +253,7 @@ function mascara_cpf(i){
  }
 
  function verificaFormFilme(){
-    let validar = true
+    let validar = true;
     const titulo = document.getElementById('table_titulo_filme').value;
     const sinopse = document.getElementById('table_sinopse_filme').value;
     const valor = document.getElementById('table_valor_filme').value;
@@ -279,3 +281,33 @@ function mascara_cpf(i){
     
     return validar;
  }
+
+function verificaCadastro(){
+    let validar = true;
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const senha1 = document.getElementById('senha1').value;
+    const senha2 = document.getElementById('senha2').value;
+
+    if (nome.length < 3){
+        document.getElementById('aviso-nome-cadastro').innerHTML = "O nome deve ter três ou mais <br> caracteres";
+        validar = false;
+    }
+
+    if (email.indexOf('@') == -1 | email.length < 5){
+        document.getElementById('aviso-email-cadastro').innerHTML = "E-mail inválido";
+        validar = false;
+    }   
+
+    if (senha1 < 5 | senha1.indexOf('!', '@', '#', '$', '%', '&', '*', '(', ')') == -1){
+        document.getElementById('aviso-senha1-cadastro').innerHTML = "A senha deve conter cinco ou mais  caracteres e conter pelo <br> menos um caractere especial";
+        validar = false;
+    }
+
+    if (senha2 != senha1){
+        document.getElementById('aviso-senha2-cadastro').innerHTML = "As senhas não são iguais";
+        validar = false;
+    }
+
+    return validar;
+}

@@ -23,25 +23,15 @@
 
         <!-- Email Address -->
         <div>
-            <x-text-input id="email" placeholder="Email" class="input-login" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" />
+            <input id="email" placeholder="Email" class="input-login" type="email" name="email" :value="old('email')"/>
         </div>
 
         <!-- Password -->
         <div>
-            <x-text-input class="input-login" placeholder="Senha" id="password"
+            <input class="input-login" placeholder="Senha" id="password"
                             type="password"
                             name="password"
-                            required autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('password')" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="checkbox-login">
-            <label for="remember_me">
-                <input id="remember_me" type="checkbox" name="remember">
-                <span>{{ __('Lembrar de mim') }}</span>
-            </label>
+                            autocomplete="current-password" />
         </div>
 
         <div>
