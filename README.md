@@ -72,10 +72,17 @@ Imagem 1 do layout da página de CRUD de filmes e gêneros
 ![layout-de-crud_filmes_generos_3](https://images2.imgbox.com/62/ad/myVrGOtF_o.png)
 Imagem 1 do layout da página de CRUD de filmes e gêneros
 
+## Páginas do locatário
+
+![layout-da-lista-filmes](https://images2.imgbox.com/67/30/pXMR4RK1_o.png)
+Imagem do layout da página principal do locatário, a lista de filmes disponíveis para o aluguel
+
+![layout-da-lista-filmes-pesquisa](https://images2.imgbox.com/8f/82/4d5VmFpn_o.png)
+Imagem do layout da página principal no modo de pesquisa
+
+![layout-da-meus-filmes-alugados](https://images2.imgbox.com/9e/9f/5GzQnmkJ_o.png)
+Imagem do layout da página de filmes alugados do usuário logado
+
 ## Diagrama de Dados
 
 ![diagrama-de-dados](https://images2.imgbox.com/03/3f/N5lxmkX2_o.png)
-
-## License
-
-Lorem Ipsum Dor Els Solem.
