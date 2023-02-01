@@ -117,7 +117,7 @@ class DatabaseSeeder extends Seeder
             ],
         );
         foreach ($data as $d){
-            $tbfilmes = new tbfilmesModel();
+            $tbfilmes = new \App\Models\tbfilmesModel();
             $tbfilmes->titulo_filme =$d['titulo_filme'];
             $tbfilmes->sinopse_filme =$d['sinopse_filme'];
             $tbfilmes->valor_filme =$d['valor_filme'];
